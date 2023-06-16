@@ -3,8 +3,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Root from "./components/Root";
 import ErrorPage from "./components/ErrorPage";
-
-// import Blog, {loader as blogLoader} from "./components/Blog/Blog";
+import BlogRootElement from "./components/Blog/BlogRootElement";
+import Post from "./components/Blog/Post";
+import { loader as postLoader } from "./components/Blog/PostLoader";
 
 const Blog = lazy(() => import("./components/Blog/Blog"));
 
@@ -20,16 +21,27 @@ function App() {
           element: <Homepage />,
         },
         {
-          path: "/blog",
+          path: "blog",
           element: (
             <Suspense fallback={console.log("Loading...")}>
-              <Blog />
+              <BlogRootElement />
             </Suspense>
           ),
-          loader: (meta) =>
-            import("./components/Blog/blogPostLoader").then((module) =>
-              module.loader(meta)
-            ),
+          children: [
+            {
+              index: true,
+              element: <Blog />,
+              loader: (meta) =>
+                import("./components/Blog/blogPostLoader").then((module) =>
+                  module.loader(meta)
+                ),
+            },
+            {
+              path: ":blogid",
+              element: <Post />,
+              loader: postLoader,
+            },
+          ],
         },
       ],
     },

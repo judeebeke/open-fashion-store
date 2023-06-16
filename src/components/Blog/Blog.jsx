@@ -1,18 +1,23 @@
 import { useState } from "react";
-import { blogPost } from "../../store/localdata";
+import { blogPost, blogTags } from "../../store/localdata";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useLoaderData, Link } from "react-router-dom";
+import SectionTitle from "../UI/SectionTitle";
+
+import Trending from "../HomepageSections/Trending";
+import ScrollToTop from "../Utils/ScrollToTop";
 
 const Blog = () => {
-  const imageList = useLoaderData();
+  const imageList = useLoaderData("blog-post");
   const [showFullPost] = useState(false);
 
-  // const togglePost = () => {
-  //   setShowFullPost(!showFullPost);
-  // };
-
   return (
-    <main className="flex flex-wrap justify-center items-center gap-4">
+    <main className="flex flex-wrap justify-center mt-6 items-center gap-4">
+      <ScrollToTop />
+      <div className="flex flex-col mt-3">
+        <SectionTitle titletext="BLOG" />
+        <Trending tagList={blogTags} />
+      </div>
       {blogPost.map((post) => {
         const postImage = imageList.find((item) => {
           return item.imageName.includes(post.tag);
@@ -31,8 +36,11 @@ const Blog = () => {
           );
 
         return (
-          <div key={post.tag} className="relative w-3/4 lg:w-72 h-80">
-            <div className="image-container hover:scale-105">
+          <div
+            key={post.tag}
+            className="relative w-3/4 lg:w-72 h-80 mt-6 hover:scale-105 transition duration-300"
+          >
+            <div className="image-container">
               <img
                 src={postImage.imageUrl}
                 className="w-full h-80 object-cover"
@@ -40,10 +48,13 @@ const Blog = () => {
               />
               <div className="image-overlay"></div>
             </div>
-            <span className="absolute bottom-2 left-2 w-11/12 text-offwhite">
+            <span className="absolute bottom-2 left-4 w-11/12 text-offwhite">
               <h4 className="title">{post.title}</h4>
               {truncatedPost}
-              <Link to={`/${post.tag}`} className="text-secondary text-base">
+              <Link
+                to={`${postImage.imageName}`}
+                className="text-secondary text-base"
+              >
                 <span className="flex items-center gap-x-3">
                   See More <AiOutlineArrowRight />
                 </span>
