@@ -131,8 +131,36 @@ export const socialIcons = [
 ]
 
 export const footerLinks = [
-  { link: "About",
+  { link: "about",
   id: "link1"},
-  {link: "Contact",id: "link2"},
-  {link: "Blog", id: "icon3"}
+  {link: "contact",id: "link2"},
+  {link: "blog", id: "icon3"}
+]
+
+export const blogPost = [
+  {title: "Essential Wardrobe Staples: 5 Must-Haves for Every Fashionista",
+   post: "In this blog post, we'll explore the five key clothing items that every fashion lover should have in their wardrobe. From a versatile little black dress to a well-fitted pair of jeans, we'll discuss why these staples are essential and how they can be styled for various occasions. Discover how these timeless pieces can form the foundation of a stylish and functional wardrobe.",
+   tag: "deskofglass"
+},
+
+{title: "Accessorize Like a Pro: Elevate Your Outfits with These Tips",
+  post: "Accessories have the power to transform any outfit, and in this blog post, we'll share expert tips on how to accessorize like a pro. From statement necklaces to scarves and belts, we'll discuss different accessory types and offer practical advice on how to mix and match them to elevate your outfits. Learn how to create eye-catching combinations and express your personal style through accessories.",
+  tag: "fashionbag"
+},{
+title:"Fashion Color Trends: Hottest Colors of the Season",
+  post: "Stay up to date with the latest color trends in the fashion world. In this blog post, we'll showcase the hottest colors of the season and explain how they can add a fresh and modern touch to your wardrobe. From vibrant hues to sophisticated neutrals, we'll explore how to incorporate these colors into your outfits and provide styling inspiration for different fashion preferences.",
+  tag: "ladyonthefloor"
+},{
+  title:"Dress for Success: Boost Your Confidence with Fashion",
+  post: "Your clothing choices can have a significant impact on your confidence and self-esteem. In this blog post, we'll delve into the psychology of dressing for success and explore how certain clothing styles and colors can boost your confidence in various situations. Discover the power of dressing intentionally and learn practical tips for leveraging fashion to enhance your self-assurance.",
+  tag: "manwithflower"
+},{
+  title:"Sustainable Fashion: Embrace Eco-Friendly Style",
+  post: "As environmental awareness grows, sustainable fashion has become increasingly important. In this blog post, we'll dive into the world of eco-friendly fashion and discuss the importance of conscious consumerism. From ethical clothing brands to eco-conscious materials, we'll explore how you can make sustainable fashion choices without compromising on style. Learn about the positive impact of embracing eco-friendly style and discover practical ways to incorporate sustainability into your wardrobe.",
+  tag: "womaninsuit"
+},{
+  title:"Timeless Style Icons: Fashion Inspiration Through the Decades",
+  post: "Take a journey through fashion history in this blog post as we explore timeless style icons from different decades. From Audrey Hepburn's elegant simplicity to Madonna's bold and iconic fashion statements, we'll showcase influential figures who have left a lasting impact on the world of fashion. Gain inspiration from their unique styles and learn how to incorporate elements of their fashion sensibilities into your own wardrobe.",
+  tag: "womanwithbag"
+}
 ]
