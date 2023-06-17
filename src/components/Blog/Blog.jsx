@@ -6,6 +6,7 @@ import SectionTitle from "../UI/SectionTitle";
 
 import Trending from "../HomepageSections/Trending";
 import ScrollToTop from "../Utils/ScrollToTop";
+import Bookmark from "../UI/Bookmark";
 
 const Blog = () => {
   const imageList = useLoaderData("blog-post");
@@ -60,6 +61,9 @@ const Blog = () => {
                 </span>
               </Link>
             </span>
+            <div className="absolute top-2 right-4">
+              <Bookmark />
+            </div>
           </div>
         );
       })}

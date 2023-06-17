@@ -8,10 +8,10 @@ const Trending = (props) => {
     <section className={`${flexCenter} flex-col gap-y-5 py-12 px-6 `}>
       <h2 className="text-2xl uppercase">{tagsTitle}</h2>
       <div className={`${flexCenter} flex-wrap gap-3`}>
-        {tagList.map((tag) => {
+        {tagList.map((tag, index) => {
           return (
             <p
-              key={tag}
+              key={tag || index}
               className="bg-inputbg rounded-full px-3 w-fit text-title text-xl"
             >
               {hash ? "#" + tag : tag}
