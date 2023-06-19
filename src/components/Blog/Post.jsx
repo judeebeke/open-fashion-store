@@ -11,17 +11,26 @@ const Post = () => {
   });
 
   return (
-    <main className="flex justify-center items-center my-9">
+    <main className="flex justify-center items-center mt-28 mb-9">
       <ScrollToTop />
       {currentPost.map((post) => (
         <article
           key={post.tag + blogid}
-          className="flex-col flex gap-y-5 w-3/4 lg:w-72"
+          className="flex-col flex gap-y-5 w-3/4"
         >
-          <img src={data} className="w-full object-cover" alt={post.title} />
-          <span className="w-11/12">
+          <img
+            src={data}
+            className="w-full lg:w-96 object-cover"
+            alt={post.title}
+          />
+          <span className="w-full">
             <h4 className="title text-title pb-4">{post.title}</h4>
             <p className="body text-body text-justify">{post.post}</p>
+          </span>
+          <span className="flex">
+            <p className="sub-title-lower">
+              Posted by: {post.author} on {post.date}
+            </p>
           </span>
         </article>
       ))}

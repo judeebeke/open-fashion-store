@@ -3,7 +3,6 @@ import { PropTypes } from "prop-types";
 
 const Trending = (props) => {
   let { tagList, tagsTitle, hash } = props;
-
   return (
     <section className={`${flexCenter} flex-col gap-y-5 py-12 px-6 `}>
       <h2 className="text-2xl uppercase">{tagsTitle}</h2>
@@ -24,7 +23,7 @@ const Trending = (props) => {
 };
 
 Trending.propTypes = {
-  tagList: PropTypes.array.required,
+  tagList: PropTypes.func.required,
   tagsTitle: PropTypes.string,
   hash: PropTypes.string,
 };

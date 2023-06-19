@@ -8,7 +8,7 @@ import { trendingTags } from "../store/localdata";
 import Button from "./UI/Button";
 import { flexCenter } from "../style";
 import Product from "./HomepageSections/Product";
-import Trending from "./HomepageSections/Trending";
+import Trending from "./UI/Trending";
 import OpenFashion from "./HomepageSections/OpenFashion";
 import FollowUs from "./HomepageSections/FollowUs";
 

@@ -4,7 +4,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { useLoaderData, Link } from "react-router-dom";
 import SectionTitle from "../UI/SectionTitle";
 
-import Trending from "../HomepageSections/Trending";
+import Trending from "../UI/Trending";
 import ScrollToTop from "../Utils/ScrollToTop";
 import Bookmark from "../UI/Bookmark";
 import { flexCenter } from "../../style";
@@ -14,7 +14,7 @@ const Blog = () => {
   const [showFullPost] = useState(false);
 
   return (
-    <main className="mt-6 gap-y-4">
+    <main className="mt-28 gap-y-4">
       <ScrollToTop />
       <div className="flex flex-col mt-3">
         <SectionTitle titletext="BLOG" />

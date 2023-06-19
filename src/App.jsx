@@ -6,6 +6,7 @@ import ErrorPage from "./components/ErrorPage";
 import BlogRootElement from "./components/Blog/BlogRootElement";
 import Post from "./components/Blog/Post";
 import { loader as postLoader } from "./components/Blog/PostLoader";
+import Loader from "./components/UI/Loader";
 
 const Blog = lazy(() => import("./components/Blog/Blog"));
 
@@ -23,7 +24,7 @@ function App() {
         {
           path: "blog",
           element: (
-            <Suspense fallback={console.log("Loading...")}>
+            <Suspense fallback={<Loader />}>
               <BlogRootElement />
             </Suspense>
           ),
