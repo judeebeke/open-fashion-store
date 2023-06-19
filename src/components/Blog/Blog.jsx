@@ -2,8 +2,9 @@ import { useState } from "react";
 import { blogPost, blogTags } from "../../store/localdata";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useLoaderData, Link } from "react-router-dom";
-import SectionTitle from "../UI/SectionTitle";
 
+import SectionTitle from "../UI/SectionTitle";
+import Button from "../UI/Button";
 import Trending from "../UI/Trending";
 import ScrollToTop from "../Utils/ScrollToTop";
 import Bookmark from "../UI/Bookmark";
@@ -69,6 +70,13 @@ const Blog = () => {
             </div>
           );
         })}
+        <Button
+          btnstyle={`${flexCenter} h-auto gap-x-4 rounded-full px-10 text-xl text-title py-3 hover:bg-label hover:text-offwhite transition-all duration-500 ease-in-out`}
+          to="/"
+        >
+          Explore More
+          <AiOutlineArrowRight />
+        </Button>
       </section>
     </main>
   );

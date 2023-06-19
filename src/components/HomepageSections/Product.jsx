@@ -8,13 +8,15 @@ import { PropTypes } from "prop-types";
 
 const SemiDiamond = ({ isActive }) => (
   <span
-    className={`semi-diamond ${isActive ? "bg-secondary" : "bg-bgcolor"} ${isActive ? "active" : ""}`}
+    className={`semi-diamond ${isActive ? "bg-secondary" : "bg-bgcolor"} ${
+      isActive ? "active" : ""
+    }`}
     style={{
       width: "8px",
       height: "8px",
       transform: "rotate(45deg)",
-      display: 'inline-block',
-      margin: '0 5px',
+      display: "inline-block",
+      margin: "0 5px",
     }}
   />
 );
@@ -57,6 +59,6 @@ const Product = () => {
 
 SemiDiamond.propTypes = {
   isActive: PropTypes.string,
-}
+};
 
 export default Product;
