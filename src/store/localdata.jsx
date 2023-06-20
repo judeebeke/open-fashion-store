@@ -186,3 +186,30 @@ export const blogPost = [
 ];
 
 export const blogTags = ["Fashion", "Promo", "Policy", "Lookbook", "sale"];
+
+export const navLinks = [
+  {
+    navLinksRef: "Link 1",
+    navLinkText: "link Text",
+  },
+  {
+    navLinksRef: "Link 2",
+    navLinkText: "link Text",
+  },
+  {
+    navLinksRef: "Link 3",
+    navLinkText: "link Text",
+  },
+  {
+    navLinksRef: "Link 4",
+    navLinkText: "link Text",
+  },
+  {
+    navLinksRef: "Link 5",
+    navLinkText: "link Text",
+  },
+  {
+    navLinksRef: "Link 6",
+    navLinkText: "link Text",
+  },
+];

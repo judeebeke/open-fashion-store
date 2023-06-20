@@ -15,7 +15,7 @@ const Blog = () => {
   const [showFullPost] = useState(false);
 
   return (
-    <main className="mt-28 gap-y-4">
+    <main className={`mt-28 gap-y-4`}>
       <ScrollToTop />
       <div className="flex flex-col mt-3">
         <SectionTitle titletext="BLOG" />
@@ -70,14 +70,14 @@ const Blog = () => {
             </div>
           );
         })}
-        <Button
-          btnstyle={`${flexCenter} h-auto gap-x-4 rounded-full px-10 text-xl text-title py-3 hover:bg-label hover:text-offwhite transition-all duration-500 ease-in-out`}
-          to="/"
-        >
-          Explore More
-          <AiOutlineArrowRight />
-        </Button>
       </section>
+      <Button
+        btnstyle={`${flexCenter} w-[250px] h-auto gap-x-4 mt-8 mx-auto rounded-full px-10 text-xl text-title py-3 hover:bg-secondary hover:text-offwhite transition-all duration-500 ease-in-out`}
+        to="/"
+      >
+        Explore More
+        <AiOutlineArrowRight />
+      </Button>
     </main>
   );
 };
