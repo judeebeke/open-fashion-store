@@ -1,10 +1,14 @@
 import { useState } from "react";
+// import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
+import ScrollToTop from "../Utils/ScrollToTop";
 
 const ITEMS_PER_PAGE = 10; // Number of items to display per page
 
 const Products = () => {
   const [currentPage, setCurrentPage] = useState(0);
+
+  //   const { prodid } = useParams();
   const items = [
     "Item 1",
     "Item 2",
@@ -52,14 +56,18 @@ const Products = () => {
   );
 
   return (
-    <div>
-      {/* Render your current page items */}
-      <ul>
+    <div className="mt-24">
+      <ScrollToTop />;{/* Render your current page items */}
+      <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 place-items-center">
         {currentItems.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li
+            key={index}
+            className="w-[50%] h-[5rem] border-x-primary shadow-gray-100 flex justify-center items-center bg-line"
+          >
+            {item}
+          </li>
         ))}
       </ul>
-
       {/* Render the pagination component */}
       <ReactPaginate
         previousLabel={"Previous"}
@@ -71,6 +79,12 @@ const Products = () => {
         onPageChange={handlePageChange}
         containerClassName={"pagination"}
         activeClassName={"active"}
+        pageClassName={"page"}
+        pageLinkClassName={"page-link"}
+        previousClassName={"previous"}
+        nextClassName={"next"}
+        disabledClassName={"disabled"}
+        breakClassName={"break"}
       />
     </div>
   );

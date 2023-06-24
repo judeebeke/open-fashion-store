@@ -4,7 +4,7 @@ import { productsForYou } from "../../store/localdata";
 
 const ProductPage = () => {
   return (
-    <section>
+    <section className="mt-24">
       {productsForYou.map((item) => {
         return (
           <figure

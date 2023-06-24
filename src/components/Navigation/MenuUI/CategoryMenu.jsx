@@ -5,7 +5,8 @@ import { AiOutlineCaretDown, AiOutlineCaretUp } from "react-icons/ai";
 import { PropTypes } from "prop-types";
 
 const CategoryMenu = (props) => {
-  const { currentMenu } = props;
+  const { currentMenu, onCloseNav } = props;
+
   return currentMenu.map((item) => {
     return (
       <Collapsible
@@ -29,6 +30,7 @@ const CategoryMenu = (props) => {
               <Link
                 to={`/product/${link.navLinksRef}`}
                 key={link.navLinksRef}
+                onClick={onCloseNav}
                 className="pl-4 hover:bg-primary hover:text-bgcolortwo py-2 ransition-all duration-300 ease-in-out"
               >
                 {link.navLinkText}
@@ -43,6 +45,7 @@ const CategoryMenu = (props) => {
 
 CategoryMenu.propTypes = {
   onNavClick: PropTypes.func,
+  onCloseNav: PropTypes.func,
 };
 
 export default CategoryMenu;

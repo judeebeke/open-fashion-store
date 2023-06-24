@@ -4,9 +4,11 @@ import MobileNav from "./MobileNav";
 
 const Nav = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+
   const navHandler = () => {
     setIsNavOpen((prev) => !prev);
   };
+
   return (
     <nav>
       <span className="text-body cursor-pointer" onClick={navHandler}>

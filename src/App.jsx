@@ -41,7 +41,7 @@ function App() {
                 ),
             },
             {
-              path: ":blogid",
+              path: "/blog/:blogid",
               element: <Post />,
               loader: postLoader,
             },
@@ -52,7 +52,7 @@ function App() {
           element: <ProductRoot />,
           children: [
             { index: true, element: <ProductPage /> },
-            { path: "/product/:product-cate", element: <Products /> },
+            { path: "/product/:prodid", element: <Products /> },
           ],
         },
       ],

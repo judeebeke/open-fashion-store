@@ -554,39 +554,39 @@ export const womenNavLinks = [
     subtitle: "new",
     submenu: [
       {
-        navLinksRef: "Outer 1",
+        navLinksRef: "Outer",
         navLinkText: "Outer",
       },
       {
-        navLinksRef: "Dress 2",
+        navLinksRef: "Dress",
         navLinkText: "Dress",
       },
       {
-        navLinksRef: "Blouse/Shirt new 3",
+        navLinksRef: "Blouse",
         navLinkText: "Blouse/Shirt new",
       },
       {
-        navLinksRef: "T-Shirt new 4",
+        navLinksRef: "T-Shirt new",
         navLinkText: "T-Shirt",
       },
       {
-        navLinksRef: "Knitwear 5",
+        navLinksRef: "Knitwear",
         navLinkText: "Knitwear",
       },
       {
-        navLinksRef: "Skirt 6",
+        navLinksRef: "Skirt",
         navLinkText: "Skirt",
       },
       {
-        navLinksRef: "Pants 6",
+        navLinksRef: "Pants",
         navLinkText: "Pants",
       },
       {
-        navLinksRef: "Denin 6",
+        navLinksRef: "Denin",
         navLinkText: "Denin",
       },
       {
-        navLinksRef: "Kids 6",
+        navLinksRef: "Kids",
         navLinkText: "Kids",
       },
     ],

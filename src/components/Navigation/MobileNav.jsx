@@ -35,7 +35,7 @@ const MobileNav = (props) => {
   }
 
   return (
-    <nav className="absolute top-0 left-0 w-screen h-screen flex flex-col gap-y-4 justify-start py-20 px-4 bg-offwhite z-50 transition-opacity duration-300 overflow-auto">
+    <nav className="absolute nav-scroll top-0 left-0 w-screen h-screen flex flex-col gap-y-4 justify-start py-20 px-4 bg-offwhite z-50 transition-opacity duration-300 overflow-auto">
       <span
         className="text-4xl absolute top-4 left-4 cursor-pointer text-primary"
         onClick={onNavClick}
@@ -46,7 +46,11 @@ const MobileNav = (props) => {
         <MenuTag onChangeMenuFunc={setActiveMenu} currentTag={activeMenu} />
       </div>
       <span className="text-base capitalize w-full">
-        <CategoryMenu currentMenu={content} onOpen={open} />
+        <CategoryMenu
+          currentMenu={content}
+          onOpen={open}
+          onCloseNav={onNavClick}
+        />
       </span>
       <div className="text-base relative place-self-start flex-col justify-start mb-4">
         <span className="flex justify-center items-center">

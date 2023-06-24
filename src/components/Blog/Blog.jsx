@@ -15,7 +15,7 @@ const Blog = () => {
   const [showFullPost] = useState(false);
 
   return (
-    <main className={`mt-28 gap-y-4`}>
+    <main className="mt-28 gap-y-4">
       <ScrollToTop />
       <div className="flex flex-col mt-3">
         <SectionTitle titletext="BLOG" />
