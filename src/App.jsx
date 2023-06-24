@@ -7,6 +7,9 @@ import BlogRootElement from "./components/Blog/BlogRootElement";
 import Post from "./components/Blog/Post";
 import { loader as postLoader } from "./components/Blog/PostLoader";
 import Loader from "./components/UI/Loader";
+import ProductRoot from "./components/Products/ProductRoot";
+import ProductPage from "./components/Products/ProuductPage";
+import Products from "./components/Products/Products";
 
 const Blog = lazy(() => import("./components/Blog/Blog"));
 
@@ -42,6 +45,14 @@ function App() {
               element: <Post />,
               loader: postLoader,
             },
+          ],
+        },
+        {
+          path: "product",
+          element: <ProductRoot />,
+          children: [
+            { index: true, element: <ProductPage /> },
+            { path: "/product/:product-cate", element: <Products /> },
           ],
         },
       ],

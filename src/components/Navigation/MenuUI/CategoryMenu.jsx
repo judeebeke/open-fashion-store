@@ -27,6 +27,7 @@ const CategoryMenu = (props) => {
           {item.submenu.map((link) => {
             return (
               <Link
+                to={`/product/${link.navLinksRef}`}
                 key={link.navLinksRef}
                 className="pl-4 hover:bg-primary hover:text-bgcolortwo py-2 ransition-all duration-300 ease-in-out"
               >
