@@ -9,7 +9,7 @@ const Nav = () => {
   };
   return (
     <nav>
-      <span className="text-body" onClick={navHandler}>
+      <span className="text-body cursor-pointer" onClick={navHandler}>
         <RxHamburgerMenu />
       </span>
       {isNavOpen && <MobileNav onNavClick={navHandler} />}

@@ -187,29 +187,568 @@ export const blogPost = [
 
 export const blogTags = ["Fashion", "Promo", "Policy", "Lookbook", "sale"];
 
-export const navLinks = [
+export const menNavLinks = [
   {
-    navLinksRef: "Link 1",
-    navLinkText: "link Text",
+    subtitle: "new",
+    submenu: [
+      {
+        navLinksRef: "Jacket 1",
+        navLinkText: "Jacket",
+      },
+      {
+        navLinksRef: "Suit 2",
+        navLinkText: "Suit",
+      },
+      {
+        navLinksRef: "Shoes 3",
+        navLinkText: "Shoes",
+      },
+      {
+        navLinksRef: "T-Shirt 4",
+        navLinkText: "T-Shirt",
+      },
+      {
+        navLinksRef: "Sweat Jacket 5",
+        navLinkText: "Sweat Jacket",
+      },
+      {
+        navLinksRef: "Trousers 6",
+        navLinkText: "Trousers",
+      },
+      {
+        navLinksRef: "Jeans 6",
+        navLinkText: "Jeans",
+      },
+      {
+        navLinksRef: "Chinox 6",
+        navLinkText: "Chinox",
+      },
+    ],
   },
   {
-    navLinksRef: "Link 2",
-    navLinkText: "link Text",
+    subtitle: "apparel",
+    submenu: [
+      {
+        navLinksRef: "Link apparel 1",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 2",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 3",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 4",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 5",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 6",
+        navLinkText: "link apparel",
+      },
+    ],
   },
   {
-    navLinksRef: "Link 3",
-    navLinkText: "link Text",
+    subtitle: "Men Bag",
+    submenu: [
+      {
+        navLinksRef: "Link Bag 1",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 2",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 3",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 4",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 5",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 6",
+        navLinkText: "link Bag",
+      },
+    ],
   },
   {
-    navLinksRef: "Link 4",
-    navLinkText: "link Text",
+    subtitle: "Shoes",
+    submenu: [
+      {
+        navLinksRef: "Link Shoes 1",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 2",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 3",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 4",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 5",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 6",
+        navLinkText: "link Shoes",
+      },
+    ],
   },
   {
-    navLinksRef: "Link 5",
-    navLinkText: "link Text",
+    subtitle: "Beauty",
+    submenu: [
+      {
+        navLinksRef: "Link Beauty 1",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 2",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 3",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 4",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 5",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 6",
+        navLinkText: "link Beauty",
+      },
+    ],
   },
   {
-    navLinksRef: "Link 6",
-    navLinkText: "link Text",
+    subtitle: "Accessories",
+    submenu: [
+      {
+        navLinksRef: "Link Accessories 1",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 2",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 3",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 4",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 5",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 6",
+        navLinkText: "link Accessories",
+      },
+    ],
+  },
+];
+
+export const kidsNavLinks = [
+  {
+    subtitle: "new",
+    submenu: [
+      {
+        navLinksRef: "Link new 1",
+        navLinkText: "link new",
+      },
+      {
+        navLinksRef: "Link new 2",
+        navLinkText: "link new",
+      },
+      {
+        navLinksRef: "Link new 3",
+        navLinkText: "link new",
+      },
+      {
+        navLinksRef: "Link new 4",
+        navLinkText: "link new",
+      },
+      {
+        navLinksRef: "Link new 5",
+        navLinkText: "link new",
+      },
+      {
+        navLinksRef: "Link new 6",
+        navLinkText: "link new",
+      },
+    ],
+  },
+  {
+    subtitle: "apparel",
+    submenu: [
+      {
+        navLinksRef: "Link apparel 1",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 2",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 3",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 4",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 5",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 6",
+        navLinkText: "link apparel",
+      },
+    ],
+  },
+  {
+    subtitle: "Kids Bag",
+    submenu: [
+      {
+        navLinksRef: "Link Bag 1",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 2",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 3",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 4",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 5",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 6",
+        navLinkText: "link Bag",
+      },
+    ],
+  },
+  {
+    subtitle: "Shoes",
+    submenu: [
+      {
+        navLinksRef: "Link Shoes 1",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 2",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 3",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 4",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 5",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 6",
+        navLinkText: "link Shoes",
+      },
+    ],
+  },
+  {
+    subtitle: "Beauty",
+    submenu: [
+      {
+        navLinksRef: "Link Beauty 1",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 2",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 3",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 4",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 5",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 6",
+        navLinkText: "link Beauty",
+      },
+    ],
+  },
+  {
+    subtitle: "Accessories",
+    submenu: [
+      {
+        navLinksRef: "Link Accessories 1",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 2",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 3",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 4",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 5",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 6",
+        navLinkText: "link Accessories",
+      },
+    ],
+  },
+];
+
+export const womenNavLinks = [
+  {
+    subtitle: "new",
+    submenu: [
+      {
+        navLinksRef: "Outer 1",
+        navLinkText: "Outer",
+      },
+      {
+        navLinksRef: "Dress 2",
+        navLinkText: "Dress",
+      },
+      {
+        navLinksRef: "Blouse/Shirt new 3",
+        navLinkText: "Blouse/Shirt new",
+      },
+      {
+        navLinksRef: "T-Shirt new 4",
+        navLinkText: "T-Shirt",
+      },
+      {
+        navLinksRef: "Knitwear 5",
+        navLinkText: "Knitwear",
+      },
+      {
+        navLinksRef: "Skirt 6",
+        navLinkText: "Skirt",
+      },
+      {
+        navLinksRef: "Pants 6",
+        navLinkText: "Pants",
+      },
+      {
+        navLinksRef: "Denin 6",
+        navLinkText: "Denin",
+      },
+      {
+        navLinksRef: "Kids 6",
+        navLinkText: "Kids",
+      },
+    ],
+  },
+  {
+    subtitle: "apparel",
+    submenu: [
+      {
+        navLinksRef: "Link apparel 1",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 2",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 3",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 4",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 5",
+        navLinkText: "link apparel",
+      },
+      {
+        navLinksRef: "Link apparel 6",
+        navLinkText: "link apparel",
+      },
+    ],
+  },
+  {
+    subtitle: "Bag",
+    submenu: [
+      {
+        navLinksRef: "Link Bag 1",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 2",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 3",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 4",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 5",
+        navLinkText: "link Bag",
+      },
+      {
+        navLinksRef: "Link Bag 6",
+        navLinkText: "link Bag",
+      },
+    ],
+  },
+  {
+    subtitle: "Shoes",
+    submenu: [
+      {
+        navLinksRef: "Link Shoes 1",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 2",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 3",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 4",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 5",
+        navLinkText: "link Shoes",
+      },
+      {
+        navLinksRef: "Link Shoes 6",
+        navLinkText: "link Shoes",
+      },
+    ],
+  },
+  {
+    subtitle: "Beauty",
+    submenu: [
+      {
+        navLinksRef: "Link Beauty 1",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 2",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 3",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 4",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 5",
+        navLinkText: "link Beauty",
+      },
+      {
+        navLinksRef: "Link Beauty 6",
+        navLinkText: "link Beauty",
+      },
+    ],
+  },
+  {
+    subtitle: "Accessories",
+    submenu: [
+      {
+        navLinksRef: "Link Accessories 1",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 2",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 3",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 4",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 5",
+        navLinkText: "link Accessories",
+      },
+      {
+        navLinksRef: "Link Accessories 6",
+        navLinkText: "link Accessories",
+      },
+    ],
+  },
+];
+
+export const MenuNavTag = [
+  {
+    menu: "women",
+    id: "women-menu",
+  },
+  {
+    menu: "men",
+    id: "men-menu",
+  },
+  {
+    menu: "kids",
+    id: "kids-menu",
   },
 ];

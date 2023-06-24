@@ -161,6 +161,31 @@ body {
   transform: rotate(45deg);
 }
 
+/* --------- MENU ACTIVE INDICATOR ------------ */
+
+
+.menu-active-title-icon {
+  position: relative;
+}
+
+.menu-active-title-icon .menu-active-line {
+  position: absolute;
+  width: 100%;
+  border-top: 0.07rem solid var(--secondary);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menu-active-diamond {
+  position: absolute;
+  border: 0.07rem solid var(--secondary);
+  z-index: 30;
+  margin: -3.5px auto;
+  left: 47%;
+  transform: rotate(45deg);
+}
+
 /* --------- SECTION HEADING STYLES --------------- */
 
 .title-icon {
@@ -184,7 +209,7 @@ body {
   border: 1px solid var(--label);
   z-index: 30;
   margin: -5px auto;
-  left: 50%;
+  left: 48%;
   transform: rotate(45deg);
 }
 
