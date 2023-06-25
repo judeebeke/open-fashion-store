@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PropTypes } from "prop-types";
 
 import { AiOutlineClose } from "react-icons/ai";
@@ -20,17 +20,21 @@ import SectionTitle from "../UI/SectionTitle";
 
 const MobileNav = (props) => {
   let { onNavClick } = props;
-  const [activeMenu, setActiveMenu] = useState("women-menu");
+  const [activeMenu, setActiveMenu] = useState("women-product");
+
+  useEffect(() => {
+    localStorage.setItem("product-category", activeMenu);
+  }, [activeMenu]);
 
   let content;
 
-  if (activeMenu === "women-menu") {
+  if (activeMenu === "women-product") {
     content = womenNavLinks;
   }
-  if (activeMenu === "men-menu") {
+  if (activeMenu === "men-product") {
     content = menNavLinks;
   }
-  if (activeMenu === "kids-menu") {
+  if (activeMenu === "kids-product") {
     content = kidsNavLinks;
   }
 
@@ -52,11 +56,11 @@ const MobileNav = (props) => {
           onCloseNav={onNavClick}
         />
       </span>
-      <div className="text-base relative place-self-start flex-col justify-start mb-4">
-        <span className="flex justify-center items-center">
+      <div className="text-base relative place-self-start flex-col mb-4">
+        <span className="flex items-center mb-3">
           <BsTelephone /> <p className="ps-3">+234-9023176236</p>
         </span>
-        <span className="flex justify-center items-center">
+        <span className="flex items-center">
           <MdOutlineGpsFixed /> <p className="ps-3">Store Location</p>
         </span>
       </div>

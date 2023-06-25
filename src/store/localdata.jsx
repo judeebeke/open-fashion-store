@@ -192,7 +192,7 @@ export const menNavLinks = [
     subtitle: "new",
     submenu: [
       {
-        navLinksRef: "Jacket 1",
+        navLinksRef: "Jacket ",
         navLinkText: "Jacket",
       },
       {
@@ -554,39 +554,23 @@ export const womenNavLinks = [
     subtitle: "new",
     submenu: [
       {
-        navLinksRef: "Outer",
+        navLinksRef: "new-outer",
         navLinkText: "Outer",
       },
       {
-        navLinksRef: "Dress",
+        navLinksRef: "new-dress",
         navLinkText: "Dress",
       },
       {
-        navLinksRef: "Blouse",
+        navLinksRef: "new-blouse",
         navLinkText: "Blouse/Shirt new",
       },
       {
-        navLinksRef: "T-Shirt new",
-        navLinkText: "T-Shirt",
-      },
-      {
-        navLinksRef: "Knitwear",
-        navLinkText: "Knitwear",
-      },
-      {
-        navLinksRef: "Skirt",
-        navLinkText: "Skirt",
-      },
-      {
-        navLinksRef: "Pants",
-        navLinkText: "Pants",
-      },
-      {
-        navLinksRef: "Denin",
+        navLinksRef: "new-denin",
         navLinkText: "Denin",
       },
       {
-        navLinksRef: "Kids",
+        navLinksRef: "new-kids",
         navLinkText: "Kids",
       },
     ],
@@ -596,27 +580,23 @@ export const womenNavLinks = [
     submenu: [
       {
         navLinksRef: "Link apparel 1",
-        navLinkText: "link apparel",
+        navLinkText: "Shirt Apparel",
       },
       {
         navLinksRef: "Link apparel 2",
-        navLinkText: "link apparel",
+        navLinkText: "Trousers apparel",
       },
       {
         navLinksRef: "Link apparel 3",
-        navLinkText: "link apparel",
+        navLinkText: "Blouse apparel",
       },
       {
         navLinksRef: "Link apparel 4",
-        navLinkText: "link apparel",
+        navLinkText: "Cardigan apparel",
       },
       {
         navLinksRef: "Link apparel 5",
-        navLinkText: "link apparel",
-      },
-      {
-        navLinksRef: "Link apparel 6",
-        navLinkText: "link apparel",
+        navLinkText: "Shoes Apparel",
       },
     ],
   },
@@ -625,27 +605,19 @@ export const womenNavLinks = [
     submenu: [
       {
         navLinksRef: "Link Bag 1",
-        navLinkText: "link Bag",
+        navLinkText: "Gucci Bag",
       },
       {
         navLinksRef: "Link Bag 2",
-        navLinkText: "link Bag",
+        navLinkText: "L/V Bag",
       },
       {
         navLinksRef: "Link Bag 3",
-        navLinkText: "link Bag",
+        navLinkText: "GG Bag",
       },
       {
         navLinksRef: "Link Bag 4",
-        navLinkText: "link Bag",
-      },
-      {
-        navLinksRef: "Link Bag 5",
-        navLinkText: "link Bag",
-      },
-      {
-        navLinksRef: "Link Bag 6",
-        navLinkText: "link Bag",
+        navLinkText: "DG Bag",
       },
     ],
   },
@@ -654,23 +626,23 @@ export const womenNavLinks = [
     submenu: [
       {
         navLinksRef: "Link Shoes 1",
-        navLinkText: "link Shoes",
+        navLinkText: "Nike Shoes",
       },
       {
         navLinksRef: "Link Shoes 2",
-        navLinkText: "link Shoes",
+        navLinkText: "Timberland Shoes",
       },
       {
         navLinksRef: "Link Shoes 3",
-        navLinkText: "link Shoes",
+        navLinkText: "L/V Shoes",
       },
       {
         navLinksRef: "Link Shoes 4",
-        navLinkText: "link Shoes",
+        navLinkText: "GG Shoes",
       },
       {
         navLinksRef: "Link Shoes 5",
-        navLinkText: "link Shoes",
+        navLinkText: "Airforce Shoes",
       },
       {
         navLinksRef: "Link Shoes 6",
@@ -683,27 +655,19 @@ export const womenNavLinks = [
     submenu: [
       {
         navLinksRef: "Link Beauty 1",
-        navLinkText: "link Beauty",
+        navLinkText: "Cosmetics Beauty",
       },
       {
         navLinksRef: "Link Beauty 2",
-        navLinkText: "link Beauty",
+        navLinkText: "Eye Pencil Beauty",
       },
       {
         navLinksRef: "Link Beauty 3",
-        navLinkText: "link Beauty",
+        navLinkText: "Powder Beauty",
       },
       {
         navLinksRef: "Link Beauty 4",
-        navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 5",
-        navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 6",
-        navLinkText: "link Beauty",
+        navLinkText: "Mirrors Beauty",
       },
     ],
   },
@@ -712,27 +676,23 @@ export const womenNavLinks = [
     submenu: [
       {
         navLinksRef: "Link Accessories 1",
-        navLinkText: "link Accessories",
+        navLinkText: "Watch Accessories",
       },
       {
         navLinksRef: "Link Accessories 2",
-        navLinkText: "link Accessories",
+        navLinkText: "Rings Accessories",
       },
       {
         navLinksRef: "Link Accessories 3",
-        navLinkText: "link Accessories",
+        navLinkText: "Necklaces Accessories",
       },
       {
         navLinksRef: "Link Accessories 4",
-        navLinkText: "link Accessories",
+        navLinkText: "Waist Beads Accessories",
       },
       {
         navLinksRef: "Link Accessories 5",
-        navLinkText: "link Accessories",
-      },
-      {
-        navLinksRef: "Link Accessories 6",
-        navLinkText: "link Accessories",
+        navLinkText: "Ankle Beads Accessories",
       },
     ],
   },
@@ -741,14 +701,492 @@ export const womenNavLinks = [
 export const MenuNavTag = [
   {
     menu: "women",
-    id: "women-menu",
+    id: "women-product",
   },
   {
     menu: "men",
-    id: "men-menu",
+    id: "men-product",
   },
   {
     menu: "kids",
-    id: "kids-menu",
+    id: "kids-product",
+  },
+];
+
+export const allProducts = [
+  {
+    collection: "women",
+    category: [
+      {
+        subcategory: "new",
+        products: [
+          {
+            version: "122V",
+            title: "Linter Cardigan",
+            description: "New-122V-Reversible-Linter-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "130",
+            rating: "4.8",
+          },
+          {
+            version: "123V",
+            title: "Angora Cardigan",
+            description: "New-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "124V",
+            title: "Reversible Cardigan",
+            description: "New-124V-Reversible-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "132V",
+            title: "Pandora Cardigan",
+            description: "New-132V-Reversible-Pandora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "134V",
+            title: "Reversible Cardigan",
+            description: "New-134V-Reversible-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "136V",
+            title: "Angora Cardigan",
+            description: "New-136V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "156V",
+            title: "Wankanda Sweat Cardigan",
+            description: "New-156V-Reversible-Wankanda-Sweat Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "356V",
+            title: "356V Wankanda Cardigan",
+            description: "New-356V-Reversible-Wankanda-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "443V",
+            title: "443V Wankanda Cardigan",
+            description: "New-443V-Reversible-Wankanda-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "A35V",
+            title: "Reversible Wankanda Jacket",
+            description: "New-A35V-Reversible-Wankanda-Jacket",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "apparel",
+        products: [
+          {
+            version: "123V",
+            title: "123V Reversible Angora Cardigan",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "134",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "bag",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "shoes",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "beauty",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "accessories",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    collection: "men",
+    category: [
+      {
+        subcategory: "new",
+        products: [
+          {
+            version: "122V",
+            title: "Men Linter Cardigan",
+            description: "New-122V-Reversible-Linter-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "130",
+            rating: "4.8",
+          },
+          {
+            version: "123V",
+            title: "Angora Cardigan",
+            description: "New-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "124V",
+            title: "Reversible Cardigan",
+            description: "New-124V-Reversible-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "132V",
+            title: "Pandora Cardigan",
+            description: "New-132V-Reversible-Pandora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "134V",
+            title: "Reversible Cardigan",
+            description: "New-134V-Reversible-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "136V",
+            title: "Angora Cardigan",
+            description: "New-136V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "apparel",
+        products: [
+          {
+            version: "123V",
+            title: "123V Reversible Angora Cardigan",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "134",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "bag",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "shoes",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "beauty",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "accessories",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    collection: "kids",
+    category: [
+      {
+        subcategory: "new",
+        products: [
+          {
+            version: "122V",
+            title: "Kids Linter Cardigan",
+            description: "New-122V-Reversible-Linter-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "130",
+            rating: "4.8",
+          },
+          {
+            version: "123V",
+            title: "Angora Cardigan",
+            description: "New-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "124V",
+            title: "Reversible Cardigan",
+            description: "New-124V-Reversible-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "132V",
+            title: "Pandora Cardigan",
+            description: "New-132V-Reversible-Pandora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "134V",
+            title: "Reversible Cardigan",
+            description: "New-134V-Reversible-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+          {
+            version: "136V",
+            title: "Angora Cardigan",
+            description: "New-136V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "126",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "apparel",
+        products: [
+          {
+            version: "123V",
+            title: "123V Reversible Angora Cardigan",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "134",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "bag",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "shoes",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "beauty",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+      {
+        subcategory: "accessories",
+        products: [
+          {
+            version: "",
+            title: "",
+            description: "Apparel-123V-Reversible-Angora-Cardigan",
+            material:
+              "We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products. ",
+            care: "To keep your jackets and coats clean, you only need to freshen them up and go over them with a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment.",
+            price: "",
+            rating: "4.8",
+          },
+        ],
+      },
+    ],
   },
 ];
