@@ -1,0 +1,34 @@
+[[redirects]]
+from = "/"
+status = 200
+to = "/index.html"
+
+[[redirects]]
+from = "/blog"
+status = 200
+to = "/index.html"
+
+[[redirects]]
+from = "/blog/*"
+status = 200
+to = "/index.html"
+
+[[redirects]]
+from = "/blog/:blogid"
+status = 200
+to = "/index.html"
+
+[[redirects]]
+from = "/product"
+status = 200
+to = "/index.html"
+
+[[redirects]]
+from = "/product/*"
+status = 200
+to = "/index.html"
+
+[[redirects]]
+from = "/product/:prodid"
+status = 200
+to = "/index.html"
