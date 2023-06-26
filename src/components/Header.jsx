@@ -12,12 +12,12 @@ const Header = () => {
         <img src={logo} alt="Open Fashion" />
       </Link>
       <span className="flex justify-between items-center  gap-x-5">
-        <Link to={"/"}>
+        <Link to={"/"} role="button">
           <i className="text-body">
             <BsSearch />
           </i>
         </Link>
-        <Link to={"/"}>
+        <Link to={"/"} role="button">
           <i className="text-body relative">
             <p className="absolute -top-3 -right-1 bg-secondary w-5 p-1 rounded-full text-center text-xs">
               3
