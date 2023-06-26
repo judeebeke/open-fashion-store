@@ -35,8 +35,8 @@ const Products = () => {
 
   return (
     <div className="mt-20">
-      <ScrollToTop />;
-      <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 place-items-center">
+      <ScrollToTop />
+      <ul className="grid grid-cols-2 md:grid-cols-3 mx-auto lg:grid-cols-4 md:gap-2 lg:gap-5 place-items-center">
         {currentItems.map((item) => (
           <figure
             key={item.version}

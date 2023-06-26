@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center py-4 px-6 bg-bgcolortwo text-3xl text-body z-40 fixed top-0 left-0 w-screen">
+    <header className="flex justify-between items-center py-4 px-4 bg-bgcolortwo text-3xl text-body z-40 fixed top-0 left-0 w-full">
       <Nav />
       <Link to={"/"}>
         <img src={logo} alt="Open Fashion" />
