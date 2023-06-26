@@ -222,7 +222,7 @@ body::-webkit-scrollbar-thumb:hover {
   position: absolute;
   border: 0.07rem solid var(--secondary);
   z-index: 30;
-  margin: -3.5px auto;
+  margin: -4px auto;
   left: 47%;
   transform: rotate(45deg);
 }
