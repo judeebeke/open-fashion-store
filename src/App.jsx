@@ -11,6 +11,7 @@ import ProductRoot from "./components/Products/ProductRoot";
 import ProductPage from "./components/Products/ProuductPage";
 import Products from "./components/Products/Products";
 import { loader as productsLoader } from "./components/Products/productCategoryLoader";
+import ProductDetails from "./components/Products/ProductDetails";
 
 const Blog = lazy(() => import("./components/Blog/Blog"));
 
@@ -57,6 +58,10 @@ function App() {
               path: "/product/:prodid",
               element: <Products />,
               loader: productsLoader,
+            },
+            {
+              path: "/product/productdetails/:id",
+              element: <ProductDetails />,
             },
           ],
         },

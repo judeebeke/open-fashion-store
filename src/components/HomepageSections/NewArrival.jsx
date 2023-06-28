@@ -8,6 +8,7 @@ import { PropTypes } from "prop-types";
 
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import { Link } from "react-router-dom";
 
 const SemiDiamond = ({ isActive }) => (
   <span
@@ -32,13 +33,15 @@ const NewArrival = () => {
   let newProduct = newArrival.map((item) => {
     return (
       <figure key={item.id} className="w-56 mx-auto text-center">
-        <img
-          src={item.image}
-          className="w-full object-contain"
-          alt={item.title}
-        />
-        <h5 className="text-body text-lg">{item.title}</h5>
-        <p className="text-primary text-xl">&#x24;{item.price}</p>
+        <Link to={`/product/productdetails/${item.version}`}>
+          <img
+            src={item.image}
+            className="w-full object-contain"
+            alt={item.title}
+          />
+          <h5 className="text-body text-lg">{item.title}</h5>
+          <p className="text-primary text-xl">&#x24;{item.price}</p>
+        </Link>
       </figure>
     );
   });

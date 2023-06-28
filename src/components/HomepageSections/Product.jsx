@@ -5,6 +5,7 @@ import { productsForYou } from "../../store/localdata";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
 
 const SemiDiamond = ({ isActive }) => (
   <span
@@ -34,9 +35,11 @@ const Product = () => {
         key={item.id}
         className={`flex flex-col justify-center items-center text-center pt-9`}
       >
-        <img src={item.image} className="object-contain" alt={item.title} />
-        <h5 className="w-4/6 text-body text-xl pt-1">{item.title}</h5>
-        <p className="text-primary text-2xl">&#x24;{item.price}</p>
+        <Link to={`/product/productdetails/${item.id}`}>
+          <img src={item.image} className="object-contain" alt={item.title} />
+          <h5 className="w-4/6 text-body text-xl pt-1">{item.title}</h5>
+          <p className="text-primary text-2xl">&#x24;{item.price}</p>
+        </Link>
       </figure>
     );
   });

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import ScrollToTop from "../Utils/ScrollToTop";
@@ -42,20 +42,22 @@ const Products = () => {
             key={item.version}
             className={`flex flex-col justify-center items-center text-center pt-9`}
           >
-            {imageData.map((image) => {
-              if (image.imageName.includes(item.description)) {
-                return (
-                  <img
-                    key={image.imageUrl}
-                    src={image.imageUrl}
-                    className="object-contain"
-                    alt={item.title}
-                  />
-                );
-              }
-            })}
-            <h5 className="w-4/6 text-body text-xl pt-1">{item.title}</h5>
-            <p className="text-primary text-2xl">&#x24;{item.price}</p>
+            <Link to={`/product/productdetails/${item.version}`}>
+              {imageData.map((image) => {
+                if (image.imageName.includes(item.description)) {
+                  return (
+                    <img
+                      key={image.imageUrl}
+                      src={image.imageUrl}
+                      className="object-contain"
+                      alt={item.title}
+                    />
+                  );
+                }
+              })}
+              <h5 className="w-4/6 text-body text-xl pt-1">{item.title}</h5>
+              <p className="text-primary text-2xl">&#x24;{item.price}</p>
+            </Link>
           </figure>
         ))}
       </ul>
