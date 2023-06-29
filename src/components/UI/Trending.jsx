@@ -25,7 +25,7 @@ const Trending = (props) => {
   });
 
   return (
-    <section className={`${flexCenter} flex-col gap-5 py-12 px-6 `}>
+    <section className={`${flexCenter} flex-col gap-3 py-10 px-6 `}>
       <h2 className="text-2xl uppercase">{tagsTitle}</h2>
       <AliceCarousel
         mouseTracking
@@ -40,7 +40,7 @@ const Trending = (props) => {
 };
 
 Trending.propTypes = {
-  tagList: PropTypes.func.required,
+  tagList: PropTypes.array.required,
   tagsTitle: PropTypes.string,
   hash: PropTypes.string,
 };

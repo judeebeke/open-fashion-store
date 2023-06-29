@@ -12,6 +12,8 @@ const Products = () => {
   const imageData = useLoaderData();
   const { prodid } = useParams();
 
+  localStorage.setItem("product-subcategory", prodid);
+
   const handlePageChange = (selectedPage) => {
     setCurrentPage(selectedPage.selected);
   };
@@ -42,21 +44,24 @@ const Products = () => {
             key={item.version}
             className={`flex flex-col justify-center items-center text-center pt-9`}
           >
-            <Link to={`/product/productdetails/${item.version}`}>
-              {imageData.map((image) => {
-                if (image.imageName.includes(item.description)) {
-                  return (
-                    <img
-                      key={image.imageUrl}
-                      src={image.imageUrl}
-                      className="object-contain"
-                      alt={item.title}
-                    />
-                  );
-                }
-              })}
-              <h5 className="w-4/6 text-body text-xl pt-1">{item.title}</h5>
-              <p className="text-primary text-2xl">&#x24;{item.price}</p>
+            {imageData.map((image) => {
+              if (image.imageName.includes(item.description)) {
+                return (
+                  <img
+                    key={image.imageUrl}
+                    src={image.imageUrl}
+                    className="object-contain"
+                    alt={item.title}
+                  />
+                );
+              }
+            })}
+            <Link
+              to={`/product/productdetails/${item.version}`}
+              className={`flex flex-col justify-center items-center text-center`}
+            >
+              <h5 className="w-4/6 text-body text-lg pt-1">{item.title}</h5>
+              <p className="text-primary text-xl">&#x24;{item.price}</p>
             </Link>
           </figure>
         ))}
@@ -84,3 +89,29 @@ const Products = () => {
 };
 
 export default Products;
+
+// function getNextThreeDays() {
+//   const today = new Date();
+//   const dates = [];
+
+//   for (let i = 0; i < 3; i++) {
+//     const nextDay = new Date(today);
+//     nextDay.setDate(today.getDate() + i + 1);
+//     const formattedDate = formatDate(nextDay);
+//     dates.push(formattedDate);
+//   }
+
+//   const startDate = formatDate(today);
+//   const endDate = formatDate(dates[2]);
+//   return `${startDate} - ${endDate}`;
+// }
+
+// function formatDate(date) {
+//   const day = String(date.getDate()).padStart(2, '0');
+//   const month = String(date.getMonth() + 1).padStart(2, '0');
+//   const year = date.getFullYear();
+//   return `${day}/${month}/${year}`;
+// }
+
+// const nextThreeDays = getNextThreeDays();
+// console.log(nextThreeDays);

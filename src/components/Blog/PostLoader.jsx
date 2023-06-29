@@ -1,3 +1,4 @@
+import { json } from "react-router-dom";
 import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase/firebase";
 
@@ -11,6 +12,9 @@ export const loader = async ({ params }) => {
   } catch (error) {
     console.error("Error getting image URL:", error);
     // Handle the error accordingly
-    return null;
+    throw json(
+      { message: null },
+      { status: 500, statusText: "Could not get requested post!" }
+    );
   }
 };

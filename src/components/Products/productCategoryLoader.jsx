@@ -24,7 +24,6 @@ export const loader = async ({ params }) => {
     return imageGetter || null;
   } catch (error) {
     // Handle the error here
-    console.error("Error in loader:", error);
     throw json({ message: null }, { status: 500, statusText: error });
   }
 };

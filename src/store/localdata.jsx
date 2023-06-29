@@ -701,15 +701,15 @@ export const womenNavLinks = [
 export const MenuNavTag = [
   {
     menu: "women",
-    id: "women-product",
+    id: "ladies_all",
   },
   {
     menu: "men",
-    id: "men-product",
+    id: "men_all",
   },
   {
     menu: "kids",
-    id: "kids-product",
+    id: "kids_all",
   },
 ];
 

@@ -28,13 +28,13 @@ const MobileNav = (props) => {
 
   let content;
 
-  if (activeMenu === "women-product") {
+  if (activeMenu === "ladies_all") {
     content = womenNavLinks;
   }
-  if (activeMenu === "men-product") {
+  if (activeMenu === "men_all") {
     content = menNavLinks;
   }
-  if (activeMenu === "kids-product") {
+  if (activeMenu === "kids_all") {
     content = kidsNavLinks;
   }
 
