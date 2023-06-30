@@ -11,7 +11,12 @@ import ProductRoot from "./components/Products/ProductRoot";
 import ProductPage from "./components/Products/ProuductPage";
 import Products from "./components/Products/Products";
 import { loader as productsLoader } from "./components/Products/productCategoryLoader";
+import { loader as productsDetailsLoader } from "./components/Products/ProductDetailsLoader";
 import ProductDetails from "./components/Products/ProductDetails";
+import {
+  newArrivalLoader,
+  offersLoader,
+} from "./components/HomepageSections/HomeLoader";
 
 const Blog = lazy(() => import("./components/Blog/Blog"));
 
@@ -20,11 +25,14 @@ function App() {
     {
       path: "/",
       element: <Root />,
+      id: "for-you",
+      loader: offersLoader,
       errorElement: <ErrorPage />,
       children: [
         {
           index: true,
           element: <Homepage />,
+          loader: newArrivalLoader,
         },
         {
           path: "blog",
@@ -62,6 +70,7 @@ function App() {
             {
               path: "/product/productdetails/:id",
               element: <ProductDetails />,
+              loader: productsDetailsLoader,
             },
           ],
         },

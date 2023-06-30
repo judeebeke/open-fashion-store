@@ -20,7 +20,7 @@ import SectionTitle from "../UI/SectionTitle";
 
 const MobileNav = (props) => {
   let { onNavClick } = props;
-  const [activeMenu, setActiveMenu] = useState("women-product");
+  const [activeMenu, setActiveMenu] = useState("ladies_all");
 
   useEffect(() => {
     localStorage.setItem("product-category", activeMenu);
@@ -28,13 +28,13 @@ const MobileNav = (props) => {
 
   let content;
 
-  if (activeMenu === "women-product") {
+  if (activeMenu === "ladies_all") {
     content = womenNavLinks;
   }
-  if (activeMenu === "men-product") {
+  if (activeMenu === "men_all") {
     content = menNavLinks;
   }
-  if (activeMenu === "kids-product") {
+  if (activeMenu === "kids_all") {
     content = kidsNavLinks;
   }
 
@@ -52,7 +52,7 @@ const MobileNav = (props) => {
       <span className="text-base capitalize w-full">
         <CategoryMenu
           currentMenu={content}
-          onOpen={open}
+          active={activeMenu}
           onCloseNav={onNavClick}
         />
       </span>
