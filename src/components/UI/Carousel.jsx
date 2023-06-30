@@ -2,6 +2,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const SemiDiamond = ({ isActive }) => (
   <span
@@ -21,6 +22,12 @@ const SemiDiamond = ({ isActive }) => (
 const Carousel = (props) => {
   let { productData, letDots } = props;
 
+  const [image, setImage] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("current-details", image);
+  }, [image]);
+
   const responsive = {
     0: { items: 1, itemsFit: "cover" },
     568: { items: 2, itemsFit: "cover" },
@@ -30,16 +37,28 @@ const Carousel = (props) => {
   const products = productData.map((item) => {
     return (
       <figure
-        key={item.id || item.version}
+        key={item.defaultArticle.code}
         className={`flex flex-col justify-center items-center text-center pt-9`}
       >
-        <img src={item.image} className="object-contain" alt={item.title} />
+        <img
+          src={item.defaultArticle.images[0].url}
+          className="object-contain"
+          alt={item.defaultArticle.name}
+        />
+
         <Link
-          to={`/product/productdetails/${item.id || item.version}`}
-          className={`flex flex-col justify-center items-center text-center `}
+          to={`/product/productdetails/${item.defaultArticle.code}`}
+          className={`flex flex-col justify-center items-center text-center`}
+          onClick={() => {
+            setImage(item.defaultArticle.images[0].url);
+          }}
         >
-          <h5 className="w-4/6 text-body text-xl pt-1">{item.title}</h5>
-          <p className="text-primary text-2xl">&#x24;{item.price}</p>
+          <h5 className="w-4/6 text-body text-lg pt-1">
+            {item.defaultArticle.name}
+          </h5>
+          <p className="text-primary text-xl">
+            {item.defaultArticle.whitePrice.formattedValue}
+          </p>
         </Link>
       </figure>
     );

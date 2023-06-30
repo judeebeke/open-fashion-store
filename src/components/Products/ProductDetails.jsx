@@ -1,72 +1,77 @@
-import { Fragment, useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { Fragment, useState } from "react";
 import { flexCenter } from "../../style";
 import { AiFillHeart, AiOutlineHeart, AiOutlinePlus } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Recommend from "../UI/Recommend";
-import { allProducts } from "../../store/localdata";
-import { json } from "react-router-dom";
-import { ref, getDownloadURL } from "firebase/storage";
-import { storage } from "../../firebase/firebase";
+// import { allProducts } from "../../store/localdata";
+// import { json } from "react-router-dom";
+// import { ref, getDownloadURL } from "firebase/storage";
+// import { storage } from "../../firebase/firebase";
 
 const ProductDetails = () => {
   const [colore, setColore] = useState(false);
-  const [currentImage, setCurrentImage] = useState("");
-  const { id } = useParams();
-  let currentSubCate = localStorage.getItem("product-subcategory");
-  let currentCate = localStorage.getItem("product-category");
 
-  let productItems = allProducts.find((item) =>
-    currentCate.includes(item.collection)
-  );
+  const productImage = localStorage.getItem("current-details");
+  console.log(productImage);
+  const productDetails = useLoaderData();
 
-  let valuedItem = productItems.category.find(
-    (item) => item.subcategory === currentSubCate
-  );
+  // let currentSubCate = localStorage.getItem("product-subcategory");
+  // let currentCate = localStorage.getItem("product-category");
 
-  let selectedItem = valuedItem.products.find((item) => {
-    return item.version === id;
-  });
+  // let productItems = allProducts.find((item) =>
+  //   currentCate.includes(item.collection)
+  // );
 
-  let unSelectedItem = valuedItem.products.filter((item) => {
-    return item.version !== id;
-  });
+  // let valuedItem = productItems.category.find(
+  //   (item) => item.subcategory === currentSubCate
+  // );
 
-  let useUnSelected = unSelectedItem.slice(3, 7);
+  // let selectedItem = valuedItem.products.find((item) => {
+  //   return item.version === id;
+  // });
 
-  const loader = useCallback(async () => {
-    const storageRef = ref(
-      storage,
-      `${currentCate}/${currentSubCate}/${selectedItem.description}.png`
-    );
+  // let unSelectedItem = valuedItem.products.filter((item) => {
+  //   return item.version !== id;
+  // });
 
-    try {
-      const url = await getDownloadURL(storageRef);
-      setCurrentImage(url);
-    } catch (error) {
-      throw json(
-        { message: null },
-        { status: 500, statusText: "Could not get requested post!" }
-      );
-    }
-  }, [currentSubCate, currentCate, selectedItem.description]);
+  // let useUnSelected = unSelectedItem.slice(3, 7);
 
-  useEffect(() => {
-    loader();
-  }, [loader]);
+  // const loader = useCallback(async () => {
+  //   const storageRef = ref(
+  //     storage,
+  //     `${currentCate}/${currentSubCate}/${selectedItem.description}.png`
+  //   );
+
+  //   try {
+  //     const url = await getDownloadURL(storageRef);
+  //     setCurrentImage(url);
+  //   } catch (error) {
+  //     throw json(
+  //       { message: null },
+  //       { status: 500, statusText: "Could not get requested post!" }
+  //     );
+  //   }
+  // }, [currentSubCate, currentCate, selectedItem.description]);
+
+  // useEffect(() => {
+  //   loader();
+  // }, [loader]);
 
   return (
     <Fragment>
       <main className="mt-20 flex flex-col">
         <img
-          src={currentImage}
+          src={productImage}
           className="mx-auto w-full h-auto lg:w-1/3 object-cover px-5"
-          alt="PRODUCT ONE DISPLAY"
+          alt={productDetails.name}
         />
         <span className="px-5 py-5 flex flex-col gap-y-2 lg:text-center">
-          <h3 className="text-xl">{selectedItem.title}</h3>
-          <p className="text-base">{selectedItem.description}</p>
-          <p className="text-base text-secondary">${selectedItem.price}</p>
+          <h3 className="text-xl">{productDetails.name}</h3>
+          <p className="text-base">{productDetails.description}</p>
+          <p className="text-base text-secondary">
+            ${" "}
+            {`${productDetails.whitePrice.price} ${productDetails.whitePrice.currency}`}
+          </p>
         </span>
         <button
           className={`mx-auto w-full md:w-3/5 mb-5 md:h-10 bg-title text-offwhite text-center ${flexCenter} cursor-default gap-x-3 py-3 px-3`}
@@ -98,18 +103,22 @@ const ProductDetails = () => {
           )}
         </button>
         <div className="flex flex-col px-5 gap-y-5 gap-x-10 lg:mx-auto md:flex-row lg:gap-y-0 lg:gap-x-14 lg:w-2/4">
-          <div className="flex flex-col mx-auto">
-            <h4 className="text-lg mb-2">Materials</h4>
+          <div className="flex flex-col">
+            <h4 className="text-lg mb-2">Materials Details</h4>
             <p className="flex flex-wrap text-base leading-8">
-              {selectedItem.material}
+              {productDetails.materialDetails[0].description}
             </p>
           </div>
-          <div className="flex flex-col mx-auto">
-            <h4 className="text-lg  mb-2">Care</h4>
+          <div className="flex flex-col">
+            <h4 className="text-lg  mb-2">Import Info</h4>
             <p className="flex flex-wrap text-base leading-8">
-              {selectedItem.care}
+              {productDetails.importedBy}
             </p>
             <ul className="flex flex-col gap-y-2 mt-3 text-base ">
+              <li>
+                <span>Year Of Production: </span>
+                {productDetails.yearOfProduction}
+              </li>
               <li>Do not use Bleach</li>
               <li>Iron at a maximum of 110ºC/230ºF</li>
             </ul>
@@ -124,7 +133,7 @@ const ProductDetails = () => {
         </div>
       </main>
       <h2 className="text-center text-2xl">You May Also Like</h2>
-      <Recommend suggestedData={useUnSelected} />
+      <Recommend />
     </Fragment>
   );
 };

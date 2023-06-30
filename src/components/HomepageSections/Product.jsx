@@ -1,17 +1,20 @@
+import { PropTypes } from "prop-types";
+
+import Carousel from "../UI/Carousel";
 import SectionTitle from "../UI/SectionTitle";
 
-import { productsForYou } from "../../store/localdata";
-
-import "react-alice-carousel/lib/alice-carousel.css";
-import Carousel from "../UI/Carousel";
-
-const Product = () => {
+const Product = (props) => {
+  let { offerData } = props;
   return (
     <section>
       <SectionTitle titletext="JUST FOR YOU" />
-      <Carousel productData={productsForYou} letDots={true} />
+      <Carousel productData={offerData} letDots={true} />
     </section>
   );
+};
+
+Product.propTypes = {
+  offerData: PropTypes.array,
 };
 
 export default Product;

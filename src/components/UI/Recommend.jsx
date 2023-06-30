@@ -1,74 +1,80 @@
 import { useCallback, useEffect, useState } from "react";
+import axios from "axios";
 
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { json } from "react-router-dom";
-import { ref, getDownloadURL, listAll } from "firebase/storage";
-import { storage } from "../../firebase/firebase";
 
-const Recommend = (props) => {
-  const [currentImage, setCurrentImage] = useState([]);
+const Recommend = () => {
+  const [currentData, setCurrentData] = useState([]);
 
-  let suggestedData = props;
-  let currentSubCate = localStorage.getItem("product-subcategory");
-  let currentCate = localStorage.getItem("product-category");
-
-  const loader = useCallback(async () => {
-    try {
-      const storageRef = ref(storage, `${currentCate}/${currentSubCate}`);
-
-      const response = await listAll(storageRef);
-      const data = response.items;
-
-      const imageGetter = await Promise.all(
-        data.map(async (item) => {
-          const url = await getDownloadURL(item);
-          const currentUrl = { imageUrl: url, imageName: item.name };
-
-          return currentUrl;
-        })
-      );
-      setCurrentImage(imageGetter);
-    } catch (error) {
-      throw json(
-        { message: null },
-        { status: 500, statusText: "Could not get requested post!" }
-      );
-    }
-  }, [currentSubCate, currentCate]);
+  const [image, setImage] = useState("");
 
   useEffect(() => {
-    loader();
-  }, [loader]);
+    localStorage.setItem("current-details", image);
+  }, [image]);
+
+  let currentCate = localStorage.getItem("product-category");
+
+  const recommendLoader = useCallback(async () => {
+    const randomNumber = Math.floor(Math.random() * 6);
+    const options = {
+      method: "GET",
+      url: "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list",
+      params: {
+        country: "us",
+        lang: "en",
+        currentpage: `${randomNumber}`,
+        pagesize: "6",
+        categories: `${currentCate}`,
+      },
+      headers: {
+        "X-RapidAPI-Key": "02daad24c6mshdc1059575436c38p19c2a4jsn0b42e276ebd1",
+        "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
+      },
+    };
+
+    try {
+      const response = await axios.request(options);
+
+      setCurrentData(response.data.results) || null;
+    } catch (error) {
+      console.error(error);
+      throw json({ message: null }, { status: 500, statusText: error });
+    }
+  }, [currentCate]);
+
+  useEffect(() => {
+    recommendLoader();
+  }, [recommendLoader]);
 
   return (
     <section className="grid grid-cols-2 lg:grid-cols-4">
-      {suggestedData.suggestedData.map((item) => {
+      {currentData.map((item) => {
         return (
           <figure
-            key={item.id || item.version}
+            key={item.defaultArticle.code}
             className={`flex flex-col justify-center items-center text-center pt-9`}
           >
-            {currentImage.map((items) => {
-              return (
-                items.imageName.includes(item.description) && (
-                  <img
-                    src={items.imageUrl}
-                    className="object-contain"
-                    alt={items.title}
-                  />
-                )
-              );
-            })}
+            <img
+              src={item.defaultArticle.images[0].url}
+              className="object-contain"
+              alt={item.defaultArticle.name}
+            />
 
             <Link
-              to={`/product/productdetails/${item.version}`}
-              className={`flex flex-col justify-center items-center text-center `}
+              to={`/product/productdetails/${item.defaultArticle.code}`}
+              className={`flex flex-col justify-center items-center text-center`}
+              onClick={() => {
+                setImage(item.defaultArticle.images[0].url);
+              }}
             >
-              <h5 className="w-4/6 text-body text-xl pt-1">
-                {item.description}
+              <h5 className="w-4/6 text-body text-lg pt-1">
+                {item.defaultArticle.name}
               </h5>
-              <p className="text-primary text-2xl">{item.price}</p>
+              <p className="text-primary text-xl">
+                {item.defaultArticle.whitePrice.formattedValue}
+              </p>
             </Link>
           </figure>
         );
@@ -77,7 +83,7 @@ const Recommend = (props) => {
   );
 };
 
-Recommend.proptypes = {
+Recommend.propTypes = {
   suggestedData: PropTypes.array,
 };
 

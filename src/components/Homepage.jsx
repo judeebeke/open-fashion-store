@@ -1,3 +1,7 @@
+import { useEffect, useCallback } from "react";
+import { useRouteLoaderData, useLoaderData } from "react-router-dom";
+import axios from "axios";
+
 import { BsSearch } from "react-icons/bs";
 
 import NewArrival from "./HomepageSections/NewArrival";
@@ -13,6 +17,43 @@ import OpenFashion from "./HomepageSections/OpenFashion";
 import FollowUs from "./HomepageSections/FollowUs";
 
 const Homepage = () => {
+  const offerData = useRouteLoaderData("for-you");
+  const newArrival = useLoaderData();
+
+  const makePostRequest = useCallback(async (data) => {
+    try {
+      const options = {
+        method: "post",
+        url: `https://open-fashion-55eda-default-rtdb.firebaseio.com/products/newarrival.json`,
+        data: JSON.stringify(data),
+      };
+
+      const response = await axios.request(options);
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }, []);
+
+  const sendPostRequest = useCallback(async (data) => {
+    try {
+      const options = {
+        method: "post",
+        url: `https://open-fashion-55eda-default-rtdb.firebaseio.com/products/justforyou.json`,
+        data: JSON.stringify(data),
+      };
+
+      const response = await axios.request(options);
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    makePostRequest(newArrival);
+    sendPostRequest(offerData);
+  }, [offerData, newArrival, sendPostRequest, makePostRequest]);
   return (
     <>
       <section className="hero-image">
@@ -31,10 +72,10 @@ const Homepage = () => {
         </Button>
       </section>
       <main>
-        <NewArrival />
+        <NewArrival newArrivalData={newArrival} />
         <Brands />
         <Collection />
-        <Product />
+        <Product offerData={offerData} />
         <Trending tagList={trendingTags} tagsTitle="TRENDING" />
         <OpenFashion />
         <FollowUs />
