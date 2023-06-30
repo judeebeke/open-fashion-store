@@ -4,6 +4,9 @@ import { json } from "react-router-dom";
 export const loader = async ({ params }) => {
   let param = params.id;
 
+  let apikey = import.meta.env.VITE_API_KEY_OPEN_FASHION;
+  let apihost = import.meta.env.VITE_API_HOST;
+
   const options = {
     method: "GET",
     url: "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/detail",
@@ -13,8 +16,8 @@ export const loader = async ({ params }) => {
       productcode: `${param}`,
     },
     headers: {
-      "X-RapidAPI-Key": "02daad24c6mshdc1059575436c38p19c2a4jsn0b42e276ebd1",
-      "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
+      "X-RapidAPI-Key": apikey,
+      "X-RapidAPI-Host": apihost,
     },
   };
 
@@ -23,7 +26,6 @@ export const loader = async ({ params }) => {
 
     return response.data.product || null;
   } catch (error) {
-    console.error(error);
     throw json({ message: null }, { status: 500, statusText: error.message });
   }
 };

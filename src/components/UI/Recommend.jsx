@@ -17,6 +17,9 @@ const Recommend = () => {
   let currentCate = localStorage.getItem("product-category");
 
   const recommendLoader = useCallback(async () => {
+    let apikey = import.meta.env.VITE_API_KEY_OPEN_FASHION;
+    let apihost = import.meta.env.VITE_API_HOST;
+
     const randomNumber = Math.floor(Math.random() * 6);
     const options = {
       method: "GET",
@@ -29,8 +32,8 @@ const Recommend = () => {
         categories: `${currentCate}`,
       },
       headers: {
-        "X-RapidAPI-Key": "02daad24c6mshdc1059575436c38p19c2a4jsn0b42e276ebd1",
-        "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
+        "X-RapidAPI-Key": apikey,
+        "X-RapidAPI-Host": apihost,
       },
     };
 
@@ -49,7 +52,7 @@ const Recommend = () => {
   }, [recommendLoader]);
 
   return (
-    <section className="grid grid-cols-2 lg:grid-cols-4">
+    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       {currentData.map((item) => {
         return (
           <figure

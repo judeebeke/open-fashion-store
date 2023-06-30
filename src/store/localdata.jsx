@@ -31,36 +31,8 @@ import group2 from "../assets/followus/Group2.png";
 import group3 from "../assets/followus/Group3.png";
 import group4 from "../assets/followus/Group4.png";
 
-export const newArrival = [
-  {
-    image: productOne,
-    title: "21WN Reversible Wankadan Cardigan",
-    price: "120",
-    id: "pr2",
-  },
-  {
-    image: productTwo,
-    title: "Oblong",
-    price: "120",
-    id: "pr4",
-  },
-  {
-    image: productThree,
-    title: "21WN Reversible Angora Cardigan",
-    price: "120",
-    id: "pr1",
-  },
-  {
-    image: productFour,
-    title: "21WN Reversible Pandra Cardigan",
-    price: "120",
-    id: "pr3",
-  },
-];
-
 export const brands = [
   { image: brandOne, title: "Prada", id: "br1" },
-
   { image: brandThree, title: "Gucci", id: "br3" },
   { image: brandSix, title: "Tiffany & Co", id: "br6" },
   { image: brandFour, title: "Burberry", id: "br4" },
@@ -92,6 +64,30 @@ export const productsForYou = [
     title: "Cashmere Blend Cropped Jacket S1AW1WN-AM943",
     price: "120",
     id: "pr3",
+  },
+  {
+    image: productOne,
+    title: "21WN Reversible Wankadan Cardigan",
+    price: "120",
+    id: "pr5",
+  },
+  {
+    image: productTwo,
+    title: "Oblong",
+    price: "120",
+    id: "pr6",
+  },
+  {
+    image: productThree,
+    title: "21WN Reversible Angora Cardigan",
+    price: "120",
+    id: "pr7",
+  },
+  {
+    image: productFour,
+    title: "21WN Reversible Pandra Cardigan",
+    price: "120",
+    id: "pr8",
   },
 ];
 

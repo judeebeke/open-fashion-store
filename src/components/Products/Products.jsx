@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, json } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import ScrollToTop from "../Utils/ScrollToTop";
@@ -27,9 +27,12 @@ const Products = () => {
         };
 
         const response = await axios.request(options);
-        console.log("Response:", response.data);
+        return response;
       } catch (error) {
-        console.error("Error:", error);
+        throw json(
+          { message: null },
+          { status: 500, statusText: error.message }
+        );
       }
     },
     [prodid]
@@ -55,7 +58,7 @@ const Products = () => {
   return (
     <div className="mt-20">
       <ScrollToTop />
-      <ul className="grid grid-cols-2 md:grid-cols-3 mx-auto lg:grid-cols-4 md:gap-2 lg:gap-5 place-items-center">
+      <ul className="grid grid-cols-1 md:grid-cols-2 mx-auto lg:grid-cols-4 md:gap-2 lg:gap-5 place-items-center">
         {currentItems.map((item) => (
           <figure
             key={item.defaultArticle.code}

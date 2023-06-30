@@ -1,6 +1,9 @@
 import { json } from "react-router-dom";
 import axios from "axios";
 
+let apikey = import.meta.env.VITE_API_KEY_OPEN_FASHION;
+let apihost = import.meta.env.VITE_API_HOST;
+
 export const newArrivalLoader = async () => {
   const options = {
     method: "GET",
@@ -13,8 +16,8 @@ export const newArrivalLoader = async () => {
       categories: "ladies_newarrivals_clothes",
     },
     headers: {
-      "X-RapidAPI-Key": "02daad24c6mshdc1059575436c38p19c2a4jsn0b42e276ebd1",
-      "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
+      "X-RapidAPI-Key": apikey,
+      "X-RapidAPI-Host": apihost,
     },
   };
 
@@ -23,7 +26,6 @@ export const newArrivalLoader = async () => {
 
     return response.data.results || null;
   } catch (error) {
-    console.error(error);
     throw json({ message: null }, { status: 500, statusText: error.message });
   }
 };
@@ -40,8 +42,8 @@ export const offersLoader = async () => {
       categories: "ladies_trendconcept",
     },
     headers: {
-      "X-RapidAPI-Key": "02daad24c6mshdc1059575436c38p19c2a4jsn0b42e276ebd1",
-      "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
+      "X-RapidAPI-Key": apikey,
+      "X-RapidAPI-Host": apihost,
     },
   };
 
@@ -50,7 +52,6 @@ export const offersLoader = async () => {
 
     return response.data.results || null;
   } catch (error) {
-    console.error(error);
     throw json({ message: null }, { status: 500, statusText: error.message });
   }
 };
