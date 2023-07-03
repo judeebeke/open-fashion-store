@@ -1,9 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link, useLoaderData, json } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Link, useLoaderData, json, useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
-import ScrollToTop from "../Utils/ScrollToTop";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../store/ui-slice";
+
+import ScrollToTop from "../Utils/ScrollToTop";
 
 const ITEMS_PER_PAGE = 8; // Number of items to display per page
 
@@ -11,11 +13,11 @@ const Products = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const { prodid } = useParams();
   const productData = useLoaderData();
-  const [image, setImage] = useState("");
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    localStorage.setItem("current-details", image);
-  }, [image]);
+  const getImageHandler = (image, id) => {
+    dispatch(uiActions.getSelectedProductImage({ image: image, id: id }));
+  };
 
   const makePostRequest = useCallback(
     async (data) => {
@@ -74,7 +76,10 @@ const Products = () => {
               to={`/product/productdetails/${item.defaultArticle.code}`}
               className={`flex flex-col justify-center items-center text-center`}
               onClick={() => {
-                setImage(item.defaultArticle.images[0].url);
+                getImageHandler(
+                  item.defaultArticle.images[0].url,
+                  item.defaultArticle.code
+                );
               }}
             >
               <h5 className="w-4/6 text-body text-lg pt-1">

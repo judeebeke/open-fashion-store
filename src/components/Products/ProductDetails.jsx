@@ -1,64 +1,65 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { flexCenter } from "../../style";
-import { AiFillHeart, AiOutlineHeart, AiOutlinePlus } from "react-icons/ai";
 import { Link, useLoaderData } from "react-router-dom";
+
+import { AiFillHeart, AiOutlineHeart, AiOutlinePlus } from "react-icons/ai";
 import Recommend from "../UI/Recommend";
-// import { allProducts } from "../../store/localdata";
-// import { json } from "react-router-dom";
-// import { ref, getDownloadURL } from "firebase/storage";
-// import { storage } from "../../firebase/firebase";
+import ScrollToTop from "../Utils/ScrollToTop";
+import { cartActions } from "../../store/cart-slice";
 
 const ProductDetails = () => {
-  const [colore, setColore] = useState(false);
+  const dispatch = useDispatch();
 
-  const productImage = localStorage.getItem("current-details");
-  console.log(productImage);
+  const productImage = useSelector((state) => state.ui.currentProductImage);
+
+  const cartItems = useSelector((state) => state.cart.items);
   const productDetails = useLoaderData();
 
-  // let currentSubCate = localStorage.getItem("product-subcategory");
-  // let currentCate = localStorage.getItem("product-category");
+  console.log(cartItems);
 
-  // let productItems = allProducts.find((item) =>
-  //   currentCate.includes(item.collection)
-  // );
+  const toggleToFavouriteHandler = (
+    currentimage,
+    currentCode,
+    currentPrice
+  ) => {
+    dispatch(
+      cartActions.toggleToFavourite({
+        id: currentCode,
+        image: currentimage,
+        price: currentPrice,
+      })
+    );
+  };
 
-  // let valuedItem = productItems.category.find(
-  //   (item) => item.subcategory === currentSubCate
-  // );
+  const addToCartHandler = (currentimage, currentCode, currentPrice) => {
+    dispatch(
+      cartActions.addProductToCart({
+        id: currentCode,
+        image: currentimage,
+        price: currentPrice,
+      })
+    );
+  };
 
-  // let selectedItem = valuedItem.products.find((item) => {
-  //   return item.version === id;
-  // });
+  const currentProduct = cartItems.filter((item) => {
+    return item.id === productDetails.code;
+  });
 
-  // let unSelectedItem = valuedItem.products.filter((item) => {
-  //   return item.version !== id;
-  // });
-
-  // let useUnSelected = unSelectedItem.slice(3, 7);
-
-  // const loader = useCallback(async () => {
-  //   const storageRef = ref(
-  //     storage,
-  //     `${currentCate}/${currentSubCate}/${selectedItem.description}.png`
-  //   );
-
-  //   try {
-  //     const url = await getDownloadURL(storageRef);
-  //     setCurrentImage(url);
-  //   } catch (error) {
-  //     throw json(
-  //       { message: null },
-  //       { status: 500, statusText: "Could not get requested post!" }
-  //     );
-  //   }
-  // }, [currentSubCate, currentCate, selectedItem.description]);
-
-  // useEffect(() => {
-  //   loader();
-  // }, [loader]);
+  console.log(currentProduct[0]);
+  let onCart = "";
+  let onLiked = "";
+  if (currentProduct[0] === undefined) {
+    onCart = false;
+    onLiked = false;
+  } else {
+    onCart = currentProduct[0].onCart;
+    onLiked = currentProduct[0].liked;
+  }
 
   return (
     <Fragment>
+      <ScrollToTop />
       <main className="mt-20 flex flex-col">
         <img
           src={productImage}
@@ -76,17 +77,37 @@ const ProductDetails = () => {
         <button
           className={`mx-auto w-full md:w-3/5 mb-5 md:h-10 bg-title text-offwhite text-center ${flexCenter} cursor-default gap-x-3 py-3 px-3`}
         >
-          <Link
-            to="/"
-            className={`flex justify-center items-center gap-x-3 px-3`}
-          >
-            <AiOutlinePlus /> ADD TO CART
-          </Link>
-          {!colore ? (
+          {!onCart ? (
+            <span
+              className={`flex justify-center items-center gap-x-3 px-3`}
+              onClick={() => {
+                addToCartHandler(
+                  productImage,
+                  productDetails.code,
+                  productDetails.whitePrice.price
+                );
+              }}
+            >
+              <AiOutlinePlus /> ADD TO CART
+            </span>
+          ) : (
+            <Link
+              to={"/cart"}
+              className={`flex justify-center items-center gap-x-3 px-3`}
+            >
+              GO TO CART
+            </Link>
+          )}
+
+          {!onLiked ? (
             <i
               className="z-20"
               onClick={() => {
-                setColore((prev) => !prev);
+                toggleToFavouriteHandler(
+                  productImage,
+                  productDetails.code,
+                  productDetails.whitePrice.price
+                );
               }}
             >
               <AiOutlineHeart />
@@ -95,7 +116,11 @@ const ProductDetails = () => {
             <i
               className="z-20"
               onClick={() => {
-                setColore((prev) => !prev);
+                toggleToFavouriteHandler(
+                  productImage,
+                  productDetails.code,
+                  productDetails.whitePrice.price
+                );
               }}
             >
               <AiFillHeart className="text-secondary" />
@@ -132,7 +157,6 @@ const ProductDetails = () => {
           </p>
         </div>
       </main>
-      <h2 className="text-center text-2xl">You May Also Like</h2>
       <Recommend />
     </Fragment>
   );

@@ -1,8 +1,11 @@
+// import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+
+import "react-alice-carousel/lib/alice-carousel.css";
+import { uiActions } from "../../store/ui-slice";
 
 const SemiDiamond = ({ isActive }) => (
   <span
@@ -21,12 +24,11 @@ const SemiDiamond = ({ isActive }) => (
 
 const Carousel = (props) => {
   let { productData, letDots } = props;
+  let dispatch = useDispatch();
 
-  const [image, setImage] = useState("");
-
-  useEffect(() => {
-    localStorage.setItem("current-details", image);
-  }, [image]);
+  const getImageHandler = (image, id) => {
+    dispatch(uiActions.getSelectedProductImage({ image: image, id: id }));
+  };
 
   const responsive = {
     0: { items: 1, itemsFit: "cover" },
@@ -50,7 +52,10 @@ const Carousel = (props) => {
           to={`/product/productdetails/${item.defaultArticle.code}`}
           className={`flex flex-col justify-center items-center text-center`}
           onClick={() => {
-            setImage(item.defaultArticle.images[0].url);
+            getImageHandler(
+              item.defaultArticle.images[0].url,
+              item.defaultArticle.code
+            );
           }}
         >
           <h5 className="w-4/6 text-body text-lg pt-1">
