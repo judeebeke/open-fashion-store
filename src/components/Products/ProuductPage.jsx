@@ -1,12 +1,12 @@
 // import SectionTitle from "../UI/SectionTitle";
 
-import { Link } from "react-router-dom";
-import { productsForYou } from "../../store/localdata";
+import { Link, useRouteLoaderData } from "react-router-dom";
 import ScrollToTop from "../Utils/ScrollToTop";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 
 const ProductPage = () => {
+  const productData = useRouteLoaderData("prod-data");
   const dispatch = useDispatch();
 
   const getImageHandler = (image, id) => {
@@ -16,22 +16,34 @@ const ProductPage = () => {
   return (
     <section className="mt-24 grid grid-cols-1 md:grid-cols-2 mx-auto lg:grid-cols-4 md:gap-2 lg:gap-5 place-items-center">
       <ScrollToTop />
-      {productsForYou.map((item) => {
+      {productData.map((item) => {
         return (
           <figure
-            key={item.id}
+            key={item.defaultArticle.code}
             className={`flex flex-col justify-center items-center text-center pt-9`}
           >
-            <img src={item.image} className="object-contain" alt={item.title} />
+            <img
+              src={item.defaultArticle.images[0].url}
+              className="object-contain"
+              alt={item.defaultArticle.name}
+            />
+
             <Link
-              to={`/product/productdetails/${item.id}`}
+              to={`/product/productdetails/${item.defaultArticle.code}`}
               className={`flex flex-col justify-center items-center text-center`}
               onClick={() => {
-                getImageHandler(item.image, item.id);
+                getImageHandler(
+                  item.defaultArticle.images[0].url,
+                  item.defaultArticle.code
+                );
               }}
             >
-              <h5 className="w-4/6 text-body text-xl pt-1">{item.title}</h5>
-              <p className="text-primary text-2xl">&#x24;{item.price}</p>
+              <h5 className="w-4/6 text-body text-lg pt-1">
+                {item.defaultArticle.name}
+              </h5>
+              <p className="text-primary text-xl">
+                {item.defaultArticle.whitePrice.formattedValue}
+              </p>
             </Link>
           </figure>
         );

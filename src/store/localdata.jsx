@@ -188,36 +188,36 @@ export const menNavLinks = [
     subtitle: "new",
     submenu: [
       {
-        navLinksRef: "Jacket ",
-        navLinkText: "Jacket",
+        navLinksRef: "men_all",
+        navLinkText: "Men New",
       },
       {
-        navLinksRef: "Suit 2",
-        navLinkText: "Suit",
+        navLinksRef: "men_lookbook",
+        navLinkText: "Summer lookbook",
       },
       {
-        navLinksRef: "Shoes 3",
-        navLinkText: "Shoes",
+        navLinksRef: "men_all",
+        navLinkText: "Shop by Product",
       },
       {
-        navLinksRef: "T-Shirt 4",
-        navLinkText: "T-Shirt",
+        navLinksRef: "men_hoodiessweatshirts",
+        navLinkText: "Hoodies & Sweatshirts",
       },
       {
-        navLinksRef: "Sweat Jacket 5",
-        navLinkText: "Sweat Jacket",
+        navLinksRef: "Smen_blazerssuits",
+        navLinkText: "Suits & Blazers",
       },
       {
-        navLinksRef: "Trousers 6",
+        navLinksRef: "men_sport",
+        navLinkText: "Sportswear",
+      },
+      {
+        navLinksRef: "men_underwear",
+        navLinkText: "Underwear",
+      },
+      {
+        navLinksRef: "men_trousers",
         navLinkText: "Trousers",
-      },
-      {
-        navLinksRef: "Jeans 6",
-        navLinkText: "Jeans",
-      },
-      {
-        navLinksRef: "Chinox 6",
-        navLinkText: "Chinox",
       },
     ],
   },
@@ -225,57 +225,45 @@ export const menNavLinks = [
     subtitle: "apparel",
     submenu: [
       {
-        navLinksRef: "Link apparel 1",
-        navLinkText: "link apparel",
+        navLinksRef: "men_tshirtstanks",
+        navLinkText: "T-shirts & Tanks",
       },
       {
-        navLinksRef: "Link apparel 2",
-        navLinkText: "link apparel",
+        navLinksRef: "men_tshirtstanks_shortsleeve",
+        navLinkText: "T-shirts",
       },
       {
-        navLinksRef: "Link apparel 3",
-        navLinkText: "link apparel",
-      },
-      {
-        navLinksRef: "Link apparel 4",
-        navLinkText: "link apparel",
-      },
-      {
-        navLinksRef: "Link apparel 5",
-        navLinkText: "link apparel",
-      },
-      {
-        navLinksRef: "Link apparel 6",
-        navLinkText: "link apparel",
+        navLinksRef: "men_tshirtstanks_longsleeve",
+        navLinkText: "Long Sleeves",
       },
     ],
   },
   {
-    subtitle: "Men Bag",
+    subtitle: "accessories",
     submenu: [
       {
-        navLinksRef: "Link Bag 1",
-        navLinkText: "link Bag",
+        navLinksRef: "men_accessories_bags",
+        navLinkText: "Bags",
       },
       {
-        navLinksRef: "Link Bag 2",
-        navLinkText: "link Bag",
+        navLinksRef: "men_accessories_sunglasses",
+        navLinkText: "Sunglasses",
       },
       {
-        navLinksRef: "Link Bag 3",
-        navLinkText: "link Bag",
+        navLinksRef: "men_accessories_jewellery",
+        navLinkText: "Jewelery",
       },
       {
-        navLinksRef: "Link Bag 4",
-        navLinkText: "link Bag",
+        navLinksRef: "men_accessories",
+        navLinkText: "Men Accessories",
       },
       {
-        navLinksRef: "Link Bag 5",
-        navLinkText: "link Bag",
+        navLinksRef: "men_accessories_ties_bowties_handkerchiefs",
+        navLinkText: "Ties, Bow tie & Handkerchiefs",
       },
       {
-        navLinksRef: "Link Bag 6",
-        navLinkText: "link Bag",
+        navLinksRef: "men_accessories_beltsandbraces",
+        navLinkText: "Belts and Suspenders",
       },
     ],
   },
@@ -286,83 +274,14 @@ export const menNavLinks = [
         navLinksRef: "Link Shoes 1",
         navLinkText: "link Shoes",
       },
-      {
-        navLinksRef: "Link Shoes 2",
-        navLinkText: "link Shoes",
-      },
-      {
-        navLinksRef: "Link Shoes 3",
-        navLinkText: "link Shoes",
-      },
-      {
-        navLinksRef: "Link Shoes 4",
-        navLinkText: "link Shoes",
-      },
-      {
-        navLinksRef: "Link Shoes 5",
-        navLinkText: "link Shoes",
-      },
-      {
-        navLinksRef: "Link Shoes 6",
-        navLinkText: "link Shoes",
-      },
     ],
   },
   {
     subtitle: "Beauty",
     submenu: [
       {
-        navLinksRef: "Link Beauty 1",
+        navLinksRef: "beauty_all",
         navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 2",
-        navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 3",
-        navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 4",
-        navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 5",
-        navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 6",
-        navLinkText: "link Beauty",
-      },
-    ],
-  },
-  {
-    subtitle: "Accessories",
-    submenu: [
-      {
-        navLinksRef: "Link Accessories 1",
-        navLinkText: "link Accessories",
-      },
-      {
-        navLinksRef: "Link Accessories 2",
-        navLinkText: "link Accessories",
-      },
-      {
-        navLinksRef: "Link Accessories 3",
-        navLinkText: "link Accessories",
-      },
-      {
-        navLinksRef: "Link Accessories 4",
-        navLinkText: "link Accessories",
-      },
-      {
-        navLinksRef: "Link Accessories 5",
-        navLinkText: "link Accessories",
-      },
-      {
-        navLinksRef: "Link Accessories 6",
-        navLinkText: "link Accessories",
       },
     ],
   },
@@ -373,28 +292,28 @@ export const kidsNavLinks = [
     subtitle: "new",
     submenu: [
       {
-        navLinksRef: "Link new 1",
-        navLinkText: "link new",
+        navLinksRef: "kids_all",
+        navLinkText: "Kids new",
       },
       {
-        navLinksRef: "Link new 2",
-        navLinkText: "link new",
+        navLinksRef: "kids_boys_viewall",
+        navLinkText: "Boys (2-8Y)",
       },
       {
-        navLinksRef: "Link new 3",
-        navLinkText: "link new",
+        navLinksRef: "kids_girls_viewall",
+        navLinkText: "Kids Girls",
       },
       {
-        navLinksRef: "Link new 4",
-        navLinkText: "link new",
+        navLinksRef: "kids_girls_viewall",
+        navLinkText: "Girls (2-8Y)",
       },
       {
-        navLinksRef: "Link new 5",
-        navLinkText: "link new",
+        navLinksRef: "kids_oldergirls_viewall",
+        navLinkText: "Girls (9-14Y)",
       },
       {
-        navLinksRef: "Link new 6",
-        navLinkText: "link new",
+        navLinksRef: "kids_olderboys_viewall",
+        navLinkText: "Boys (9-14Y)",
       },
     ],
   },
@@ -402,144 +321,24 @@ export const kidsNavLinks = [
     subtitle: "apparel",
     submenu: [
       {
-        navLinksRef: "Link apparel 1",
+        navLinksRef: "kids_newbornbaby_viewall",
+        navLinkText: "Baby",
+      },
+      {
+        navLinksRef: "kids_new_born_viewall",
+        navLinkText: "Newborn",
+      },
+      {
+        navLinksRef: "kids_baby_girl_viewall",
         navLinkText: "link apparel",
       },
       {
-        navLinksRef: "Link apparel 2",
-        navLinkText: "link apparel",
+        navLinksRef: "Baby Boy",
+        navLinkText: "kids_baby_boy_viewall",
       },
       {
-        navLinksRef: "Link apparel 3",
-        navLinkText: "link apparel",
-      },
-      {
-        navLinksRef: "Link apparel 4",
-        navLinkText: "link apparel",
-      },
-      {
-        navLinksRef: "Link apparel 5",
-        navLinkText: "link apparel",
-      },
-      {
-        navLinksRef: "Link apparel 6",
-        navLinkText: "link apparel",
-      },
-    ],
-  },
-  {
-    subtitle: "Kids Bag",
-    submenu: [
-      {
-        navLinksRef: "Link Bag 1",
-        navLinkText: "link Bag",
-      },
-      {
-        navLinksRef: "Link Bag 2",
-        navLinkText: "link Bag",
-      },
-      {
-        navLinksRef: "Link Bag 3",
-        navLinkText: "link Bag",
-      },
-      {
-        navLinksRef: "Link Bag 4",
-        navLinkText: "link Bag",
-      },
-      {
-        navLinksRef: "Link Bag 5",
-        navLinkText: "link Bag",
-      },
-      {
-        navLinksRef: "Link Bag 6",
-        navLinkText: "link Bag",
-      },
-    ],
-  },
-  {
-    subtitle: "Shoes",
-    submenu: [
-      {
-        navLinksRef: "Link Shoes 1",
-        navLinkText: "link Shoes",
-      },
-      {
-        navLinksRef: "Link Shoes 2",
-        navLinkText: "link Shoes",
-      },
-      {
-        navLinksRef: "Link Shoes 3",
-        navLinkText: "link Shoes",
-      },
-      {
-        navLinksRef: "Link Shoes 4",
-        navLinkText: "link Shoes",
-      },
-      {
-        navLinksRef: "Link Shoes 5",
-        navLinkText: "link Shoes",
-      },
-      {
-        navLinksRef: "Link Shoes 6",
-        navLinkText: "link Shoes",
-      },
-    ],
-  },
-  {
-    subtitle: "Beauty",
-    submenu: [
-      {
-        navLinksRef: "Link Beauty 1",
-        navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 2",
-        navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 3",
-        navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 4",
-        navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 5",
-        navLinkText: "link Beauty",
-      },
-      {
-        navLinksRef: "Link Beauty 6",
-        navLinkText: "link Beauty",
-      },
-    ],
-  },
-  {
-    subtitle: "Accessories",
-    submenu: [
-      {
-        navLinksRef: "Link Accessories 1",
-        navLinkText: "link Accessories",
-      },
-      {
-        navLinksRef: "Link Accessories 2",
-        navLinkText: "link Accessories",
-      },
-      {
-        navLinksRef: "Link Accessories 3",
-        navLinkText: "link Accessories",
-      },
-      {
-        navLinksRef: "Link Accessories 4",
-        navLinkText: "link Accessories",
-      },
-      {
-        navLinksRef: "Link Accessories 5",
-        navLinkText: "link Accessories",
-      },
-      {
-        navLinksRef: "Link Accessories 6",
-        navLinkText: "link Accessories",
+        navLinksRef: "Shop by Product",
+        navLinkText: "kids_newbornbaby_viewall",
       },
     ],
   },
@@ -550,24 +349,40 @@ export const womenNavLinks = [
     subtitle: "new",
     submenu: [
       {
-        navLinksRef: "new-outer",
-        navLinkText: "Outer",
+        navLinksRef: "beauty_all",
+        navLinkText: "Beauty",
       },
       {
-        navLinksRef: "new-dress",
+        navLinksRef: "ladies_all",
+        navLinkText: "Popular Now",
+      },
+      {
+        navLinksRef: "ladies_divided",
         navLinkText: "Dress",
       },
       {
-        navLinksRef: "new-blouse",
-        navLinkText: "Blouse/Shirt new",
-      },
-      {
-        navLinksRef: "new-denin",
-        navLinkText: "Denin",
-      },
-      {
-        navLinksRef: "new-kids",
+        navLinksRef: "kids_all",
         navLinkText: "Kids",
+      },
+      {
+        navLinksRef: "kids_girls_viewall",
+        navLinkText: "Girls (2-8Y)",
+      },
+      {
+        navLinksRef: "sportswear",
+        navLinkText: "Sport",
+      },
+      {
+        navLinksRef: "ladies_linen",
+        navLinkText: "Linen Layers",
+      },
+      {
+        navLinksRef: "ladies_dresses",
+        navLinkText: "Dresses",
+      },
+      {
+        navLinksRef: "Tops",
+        navLinkText: "ladies_tops",
       },
     ],
   },
@@ -575,24 +390,24 @@ export const womenNavLinks = [
     subtitle: "apparel",
     submenu: [
       {
-        navLinksRef: "Link apparel 1",
-        navLinkText: "Shirt Apparel",
+        navLinksRef: "beauty_all",
+        navLinkText: "Gift Guide",
       },
       {
-        navLinksRef: "Link apparel 2",
-        navLinkText: "Trousers apparel",
+        navLinksRef: "beauty_all",
+        navLinkText: "Beauty",
       },
       {
-        navLinksRef: "Link apparel 3",
-        navLinkText: "Blouse apparel",
+        navLinksRef: "sportswear",
+        navLinkText: "Sport",
       },
       {
-        navLinksRef: "Link apparel 4",
-        navLinkText: "Cardigan apparel",
+        navLinksRef: "ladies_divided",
+        navLinkText: "Dress",
       },
       {
-        navLinksRef: "Link apparel 5",
-        navLinkText: "Shoes Apparel",
+        navLinksRef: "Blazers & Vests",
+        navLinkText: "ladies_blazerswaistcoats",
       },
     ],
   },
@@ -621,28 +436,28 @@ export const womenNavLinks = [
     subtitle: "Shoes",
     submenu: [
       {
-        navLinksRef: "Link Shoes 1",
-        navLinkText: "Nike Shoes",
+        navLinksRef: "ladies_shoes",
+        navLinkText: "Shoes",
       },
       {
-        navLinksRef: "Link Shoes 2",
-        navLinkText: "Timberland Shoes",
+        navLinksRef: "ladies_shoes_heels",
+        navLinkText: "Heels",
       },
       {
-        navLinksRef: "Link Shoes 3",
-        navLinkText: "L/V Shoes",
+        navLinksRef: "ladies_shoes_ballerinas",
+        navLinkText: "Ballet Pumps",
       },
       {
-        navLinksRef: "Link Shoes 4",
-        navLinkText: "GG Shoes",
+        navLinksRef: "ladies_shoes_rainboots",
+        navLinkText: "Rain Boots",
       },
       {
-        navLinksRef: "Link Shoes 5",
-        navLinkText: "Airforce Shoes",
+        navLinksRef: "ladies_shoes_pumps",
+        navLinkText: "Pumps",
       },
       {
-        navLinksRef: "Link Shoes 6",
-        navLinkText: "link Shoes",
+        navLinksRef: "ladies_shoes_espandrilles",
+        navLinkText: "Espadrilles",
       },
     ],
   },
@@ -650,19 +465,19 @@ export const womenNavLinks = [
     subtitle: "Beauty",
     submenu: [
       {
-        navLinksRef: "Link Beauty 1",
+        navLinksRef: "beauty_all",
         navLinkText: "Cosmetics Beauty",
       },
       {
-        navLinksRef: "Link Beauty 2",
+        navLinksRef: "beauty_all",
         navLinkText: "Eye Pencil Beauty",
       },
       {
-        navLinksRef: "Link Beauty 3",
+        navLinksRef: "beauty_all",
         navLinkText: "Powder Beauty",
       },
       {
-        navLinksRef: "Link Beauty 4",
+        navLinksRef: "beauty_all",
         navLinkText: "Mirrors Beauty",
       },
     ],
@@ -675,8 +490,8 @@ export const womenNavLinks = [
         navLinkText: "Watch Accessories",
       },
       {
-        navLinksRef: "Link Accessories 2",
-        navLinkText: "Rings Accessories",
+        navLinksRef: "ladies_jumpsuits",
+        navLinkText: "Jumpsuits, Rompers & Overalls",
       },
       {
         navLinksRef: "Link Accessories 3",

@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Collapsible from "react-collapsible";
 
 import { AiOutlineCaretDown, AiOutlineCaretUp } from "react-icons/ai";
 import { PropTypes } from "prop-types";
+import { uiActions } from "../../../store/ui-slice";
 
 const CategoryMenu = (props) => {
   const { currentMenu, active, onCloseNav } = props;
-
+  const dispatch = useDispatch();
   return currentMenu.map((item) => {
     return (
       <Collapsible
@@ -29,8 +31,11 @@ const CategoryMenu = (props) => {
             return (
               <Link
                 to={`/product/${active}`}
-                key={link.navLinksRef}
-                onClick={onCloseNav}
+                key={link.navLinkText}
+                onClick={() => {
+                  onCloseNav();
+                  dispatch(uiActions.getCurrentMenu({ currentMenu: active }));
+                }}
                 className="pl-4 hover:bg-primary hover:text-bgcolortwo py-2 ransition-all duration-300 ease-in-out"
               >
                 {link.navLinkText}

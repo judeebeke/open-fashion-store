@@ -11,12 +11,15 @@ import ProductRoot from "./components/Products/ProductRoot";
 import ProductPage from "./components/Products/ProuductPage";
 import Products from "./components/Products/Products";
 import { loader as productsLoader } from "./components/Products/productCategoryLoader";
+import { productLoader } from "./components/Products/productLoader";
 import { loader as productsDetailsLoader } from "./components/Products/ProductDetailsLoader";
 import ProductDetails from "./components/Products/ProductDetails";
 import {
   newArrivalLoader,
   offersLoader,
 } from "./components/HomepageSections/HomeLoader";
+import CartRoot from "./components/Cart/CartRoot";
+import Cart from "./components/Cart/Cart";
 
 const Blog = lazy(() => import("./components/Blog/Blog"));
 
@@ -60,6 +63,8 @@ function App() {
         {
           path: "product",
           element: <ProductRoot />,
+          id: "prod-data",
+          loader: productLoader,
           children: [
             { index: true, element: <ProductPage /> },
             {
@@ -71,6 +76,16 @@ function App() {
               path: "/product/productdetails/:id",
               element: <ProductDetails />,
               loader: productsDetailsLoader,
+            },
+          ],
+        },
+        {
+          path: "cart",
+          element: <CartRoot />,
+          children: [
+            {
+              index: true,
+              element: <Cart />,
             },
           ],
         },

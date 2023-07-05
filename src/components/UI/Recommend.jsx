@@ -4,24 +4,24 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { json } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 
 const Recommend = () => {
   const [currentData, setCurrentData] = useState([]);
   let dispatch = useDispatch();
+  let currentMenu = useSelector((state) => state.ui.currentMenu);
+  let randomNumber = useSelector((state) => state.ui.myRand);
 
   const getImageHandler = (image, id) => {
     dispatch(uiActions.getSelectedProductImage({ image: image, id: id }));
+    dispatch(uiActions.getRandomNumber());
   };
 
   useEffect(() => {
-    let currentCate = localStorage.getItem("product-category");
     const recommendLoader = async () => {
       let apikey = import.meta.env.VITE_API_KEY_OPEN_FASHION;
       let apihost = import.meta.env.VITE_API_HOST;
-
-      const randomNumber = Math.floor(Math.random() * 6);
 
       const options = {
         method: "GET",
@@ -31,7 +31,7 @@ const Recommend = () => {
           lang: "en",
           currentpage: `${randomNumber}`,
           pagesize: "6",
-          categories: `${currentCate}`,
+          categories: `${currentMenu}`,
         },
         headers: {
           "X-RapidAPI-Key": apikey,
@@ -44,12 +44,11 @@ const Recommend = () => {
 
         setCurrentData(response.data.results) || null;
       } catch (error) {
-        console.error(error);
         throw json({ message: null }, { status: 500, statusText: error });
       }
     };
     recommendLoader();
-  }, []);
+  }, [currentMenu, randomNumber]);
 
   return (
     <>

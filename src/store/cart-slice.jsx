@@ -15,9 +15,11 @@ const cartSlice = createSlice({
 
       let cartItem = {
         id: action.payload.id,
+        title: action.payload.title,
         image: action.payload.image,
         quantity: 1,
         price: action.payload.price,
+        sampName: action.payload.sampName,
         liked: false,
         onCart: true,
       };
@@ -38,7 +40,10 @@ const cartSlice = createSlice({
         });
       }
 
-      state.totalPrice = state.items.reduce((acc, item) => acc + item.price, 0);
+      state.totalPrice = state.items.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      );
 
       state.totalQuantity = state.items.length;
     },
@@ -49,9 +54,11 @@ const cartSlice = createSlice({
 
       let cartItem = {
         id: action.payload.id,
+        title: action.payload.title,
         image: action.payload.image,
         quantity: 0,
         price: action.payload.price,
+        sampName: action.payload.sampName,
         liked: true,
         onCart: false,
       };
@@ -71,7 +78,10 @@ const cartSlice = createSlice({
     addedToCart(state, action) {
       let currentItems = state.items.map((cartItem) => {
         if (cartItem.id === action.payload.id) {
-          return { ...cartItem, quantity: cartItem.quantity + 1 };
+          return {
+            ...cartItem,
+            quantity: cartItem.quantity + 1,
+          };
         } else {
           return cartItem;
         }
@@ -79,29 +89,37 @@ const cartSlice = createSlice({
 
       state.items = currentItems;
 
-      state.totalPrice = state.items.reduce((acc, item) => acc + item.price, 0);
+      state.totalPrice = state.items.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      );
       state.totalQuantity = state.items.length;
     },
     removeFromCart(state, action) {
-      let currentItems = state.items.map((cartItem) => {
-        if (
-          cartItem.id === action.payload.id &&
-          action.payload.quantity !== 1
-        ) {
-          return { ...cartItem, quantity: cartItem.quantity - 1 };
-        } else if (
-          cartItem.id === action.payload.id &&
-          action.payload.quantity === 1
-        ) {
-          return;
-        } else {
-          return cartItem;
-        }
-      });
+      let getLowestItem = action.payload.quantity === 1;
 
-      state.items = currentItems;
+      if (getLowestItem) {
+        state.items = state.items.filter((item) => {
+          return item.id !== action.payload.id;
+        });
+      } else {
+        state.items = state.items.map((cartItem) => {
+          if (cartItem.id === action.payload.id) {
+            return {
+              ...cartItem,
+              quantity: action.payload.quantity - 1,
+            };
+          } else {
+            return cartItem;
+          }
+        });
+      }
 
-      state.totalPrice = state.items.reduce((acc, item) => acc + item.price, 0);
+      state.totalPrice = state.items.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      );
+
       state.totalQuantity = state.items.length;
     },
   },

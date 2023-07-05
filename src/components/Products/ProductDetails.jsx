@@ -16,28 +16,38 @@ const ProductDetails = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const productDetails = useLoaderData();
 
-  console.log(cartItems);
-
   const toggleToFavouriteHandler = (
+    currentName,
     currentimage,
     currentCode,
-    currentPrice
+    currentPrice,
+    sampleName
   ) => {
     dispatch(
       cartActions.toggleToFavourite({
         id: currentCode,
+        title: currentName,
         image: currentimage,
         price: currentPrice,
+        sampName: sampleName,
       })
     );
   };
 
-  const addToCartHandler = (currentimage, currentCode, currentPrice) => {
+  const addToCartHandler = (
+    currentName,
+    currentimage,
+    currentCode,
+    currentPrice,
+    sampleName
+  ) => {
     dispatch(
       cartActions.addProductToCart({
         id: currentCode,
+        title: currentName,
         image: currentimage,
         price: currentPrice,
+        sampName: sampleName,
       })
     );
   };
@@ -46,7 +56,6 @@ const ProductDetails = () => {
     return item.id === productDetails.code;
   });
 
-  console.log(currentProduct[0]);
   let onCart = "";
   let onLiked = "";
   if (currentProduct[0] === undefined) {
@@ -82,9 +91,11 @@ const ProductDetails = () => {
               className={`flex justify-center items-center gap-x-3 px-3`}
               onClick={() => {
                 addToCartHandler(
+                  productDetails.name,
                   productImage,
                   productDetails.code,
-                  productDetails.whitePrice.price
+                  productDetails.whitePrice.price,
+                  productDetails.sapProductName
                 );
               }}
             >
@@ -104,9 +115,11 @@ const ProductDetails = () => {
               className="z-20"
               onClick={() => {
                 toggleToFavouriteHandler(
+                  productDetails.name,
                   productImage,
                   productDetails.code,
-                  productDetails.whitePrice.price
+                  productDetails.whitePrice.price,
+                  productDetails.sapProductName
                 );
               }}
             >
@@ -117,9 +130,11 @@ const ProductDetails = () => {
               className="z-20"
               onClick={() => {
                 toggleToFavouriteHandler(
+                  productDetails.name,
                   productImage,
                   productDetails.code,
-                  productDetails.whitePrice.price
+                  productDetails.whitePrice.price,
+                  productDetails.sapProductName
                 );
               }}
             >
