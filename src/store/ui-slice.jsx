@@ -6,6 +6,7 @@ const uiSlice = createSlice({
     currentProductImage: "",
     currentMenu: "ladies_all",
     myRand: 0,
+    cartActive: false,
   },
   reducers: {
     getSelectedProductImage(state, action) {
@@ -16,6 +17,9 @@ const uiSlice = createSlice({
     },
     getRandomNumber(state) {
       state.myRand = Math.floor(Math.random() * 6);
+    },
+    cartActiveHandle(state) {
+      state.cartActive = !state.cartActive;
     },
   },
 });

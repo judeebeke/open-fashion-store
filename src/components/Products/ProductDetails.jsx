@@ -1,12 +1,13 @@
 import { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { flexCenter } from "../../style";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 import { AiFillHeart, AiOutlineHeart, AiOutlinePlus } from "react-icons/ai";
 import Recommend from "../UI/Recommend";
 import ScrollToTop from "../Utils/ScrollToTop";
 import { cartActions } from "../../store/cart-slice";
+import { uiActions } from "../../store/ui-slice";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,10 @@ const ProductDetails = () => {
 
   const cartItems = useSelector((state) => state.cart.items);
   const productDetails = useLoaderData();
+
+  const cartActiveHandler = () => {
+    dispatch(uiActions.cartActiveHandle());
+  };
 
   const toggleToFavouriteHandler = (
     currentName,
@@ -83,7 +88,7 @@ const ProductDetails = () => {
             {`${productDetails.whitePrice.price} ${productDetails.whitePrice.currency}`}
           </p>
         </span>
-        <button
+        <span
           className={`mx-auto w-full md:w-3/5 mb-5 md:h-10 bg-title text-offwhite text-center ${flexCenter} cursor-default gap-x-3 py-3 px-3`}
         >
           {!onCart ? (
@@ -102,12 +107,12 @@ const ProductDetails = () => {
               <AiOutlinePlus /> ADD TO CART
             </span>
           ) : (
-            <Link
-              to={"/cart"}
+            <button
               className={`flex justify-center items-center gap-x-3 px-3`}
+              onClick={cartActiveHandler}
             >
               GO TO CART
-            </Link>
+            </button>
           )}
 
           {!onLiked ? (
@@ -141,7 +146,7 @@ const ProductDetails = () => {
               <AiFillHeart className="text-secondary" />
             </i>
           )}
-        </button>
+        </span>
         <div className="flex flex-col px-5 gap-y-5 gap-x-10 lg:mx-auto md:flex-row lg:gap-y-0 lg:gap-x-14 lg:w-2/4">
           <div className="flex flex-col">
             <h4 className="text-lg mb-2">Materials Details</h4>

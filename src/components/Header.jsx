@@ -1,12 +1,19 @@
+// import {Porta}
 import Nav from "./Navigation/Nav";
 import { BsSearch } from "react-icons/bs";
 import { AiOutlineShopping } from "react-icons/ai";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../store/ui-slice";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.totalQuantity);
+
+  const cartActiveHandler = () => {
+    dispatch(uiActions.cartActiveHandle());
+  };
 
   return (
     <header className="flex justify-between items-center py-4 px-4 bg-bgcolortwo text-3xl text-body z-40 fixed top-0 left-0 w-full">
@@ -15,8 +22,7 @@ const Header = () => {
         <img src={logo} alt="Open Fashion" />
       </Link>
       <span className="flex justify-between items-center  gap-x-5">
-        <Link
-          to={"/"}
+        <button
           role="button"
           className="cursor-not-allowed"
           disabled={true}
@@ -25,8 +31,8 @@ const Header = () => {
           <i className="text-body cursor-not-allowed">
             <BsSearch />
           </i>
-        </Link>
-        <Link to={"/cart"} role="button">
+        </button>
+        <button role="button" onClick={cartActiveHandler}>
           <i className="text-body relative">
             {cart > 0 && (
               <p className="absolute -top-3 -right-1 bg-secondary w-5 p-1 rounded-full text-center text-xs">
@@ -35,7 +41,7 @@ const Header = () => {
             )}
             <AiOutlineShopping />
           </i>
-        </Link>
+        </button>
       </span>
     </header>
   );
