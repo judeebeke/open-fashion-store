@@ -269,7 +269,7 @@ body::-webkit-scrollbar-thumb:hover,
 .menu-active-diamond {
   position: absolute;
   border: 0.07rem solid var(--secondary);
-  z-index: 30;
+  z-index: 28;
   margin: -4px auto;
   left: 47%;
   transform: rotate(45deg);
@@ -296,7 +296,7 @@ body::-webkit-scrollbar-thumb:hover,
   width: 10px;
   height: 10px;
   border: 1px solid var(--label);
-  z-index: 30;
+  z-index: 27;
   margin: -5px auto;
   left: 48%;
   transform: rotate(45deg);

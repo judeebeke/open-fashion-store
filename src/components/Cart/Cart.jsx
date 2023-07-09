@@ -117,7 +117,7 @@ const Cart = () => {
           onClick={cartActiveHandler}
         >
           <AiOutlineShopping className="text-2xl" />
-          CHECKOUT
+          GO TO CHECKOUT
         </Link>
       )}
     </>

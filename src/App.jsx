@@ -9,13 +9,10 @@ import Post from "./components/Blog/Post";
 
 import { loader as postLoader } from "./components/Blog/PostLoader";
 import Loader from "./components/UI/Loader";
-import ProductRoot from "./components/Products/ProductRoot";
 import ProductPage from "./components/Products/ProuductPage";
 import Products from "./components/Products/Products";
 
 import { loader as productsLoader } from "./components/Products/productCategoryLoader";
-
-import { productLoader } from "./components/Products/ProductLoader";
 
 import { loader as productsDetailsLoader } from "./components/Products/ProductDetailsLoader";
 import ProductDetails from "./components/Products/ProductDetails";
@@ -28,12 +25,7 @@ import CartRoot from "./components/Cart/CartRoot";
 import Checkout from "./components/Cart/Checkout";
 
 const Blog = lazy(() => import("./components/Blog/Blog"));
-
-// const renderPortal = () => {
-//   document.addEventListener("DOMContentLoaded", function () {
-//     createPortal(<Cart />, document.getElementById("cart_overlay"));
-//   });
-// };
+const ProductRoot = lazy(() => import("./components/Products/ProductRoot"));
 
 function App() {
   const router = createBrowserRouter([
@@ -78,9 +70,17 @@ function App() {
 
         {
           path: "product",
-          element: <ProductRoot />,
+          element: (
+            <Suspense fallback={<Loader />}>
+              {" "}
+              <ProductRoot />{" "}
+            </Suspense>
+          ),
           id: "prod-data",
-          loader: productLoader,
+          loader: (meta) =>
+            import("./components/Products/ProductLoader").then((module) =>
+              module.productLoader(meta)
+            ),
           children: [
             {
               index: true,

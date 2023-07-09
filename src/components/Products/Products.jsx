@@ -23,7 +23,7 @@ const Products = () => {
     async (data) => {
       try {
         const options = {
-          method: "post",
+          method: "put",
           url: `https://open-fashion-55eda-default-rtdb.firebaseio.com/products/${prodid}.json`,
           data: JSON.stringify(data),
         };
@@ -115,29 +115,3 @@ const Products = () => {
 };
 
 export default Products;
-
-// function getNextThreeDays() {
-//   const today = new Date();
-//   const dates = [];
-
-//   for (let i = 0; i < 3; i++) {
-//     const nextDay = new Date(today);
-//     nextDay.setDate(today.getDate() + i + 1);
-//     const formattedDate = formatDate(nextDay);
-//     dates.push(formattedDate);
-//   }
-
-//   const startDate = formatDate(today);
-//   const endDate = formatDate(dates[2]);
-//   return `${startDate} - ${endDate}`;
-// }
-
-// function formatDate(date) {
-//   const day = String(date.getDate()).padStart(2, '0');
-//   const month = String(date.getMonth() + 1).padStart(2, '0');
-//   const year = date.getFullYear();
-//   return `${day}/${month}/${year}`;
-// }
-
-// const nextThreeDays = getNextThreeDays();
-// console.log(nextThreeDays);

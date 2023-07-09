@@ -6,13 +6,20 @@ const cartSlice = createSlice({
     items: [],
     totalPrice: "",
     totalQuantity: "",
+    isChangedData: false,
   },
   reducers: {
+    replaceCart(state, action) {
+      state.items = action.payload.items;
+      state.totalPrice = action.payload.totalPrice;
+      state.totalQuantity = action.payload.totalQuantity;
+      state.isChangedData = action.payload.isChangedData;
+    },
     addProductToCart(state, action) {
+      state.isChangedData = true;
       let currentItem = state.items.find((item) => {
         return item.id === action.payload.id;
       });
-
       let cartItem = {
         id: action.payload.id,
         title: action.payload.title,
@@ -48,6 +55,7 @@ const cartSlice = createSlice({
       state.totalQuantity = state.items.length;
     },
     toggleToFavourite(state, action) {
+      state.isChangedData = true;
       let currentItem = state.items.find((item) => {
         return item.id === action.payload.id;
       });
@@ -76,6 +84,7 @@ const cartSlice = createSlice({
       }
     },
     addedToCart(state, action) {
+      state.isChangedData = true;
       let currentItems = state.items.map((cartItem) => {
         if (cartItem.id === action.payload.id) {
           return {
@@ -96,6 +105,7 @@ const cartSlice = createSlice({
       state.totalQuantity = state.items.length;
     },
     removeFromCart(state, action) {
+      state.isChangedData = true;
       let getLowestItem = action.payload.quantity === 1;
 
       if (getLowestItem) {

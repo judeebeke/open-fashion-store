@@ -14,7 +14,7 @@ const ProductPage = () => {
   };
 
   return (
-    <section className="mt-24 grid grid-cols-1 md:grid-cols-2 mx-auto lg:grid-cols-4 md:gap-2 lg:gap-5 place-items-center">
+    <section className="mt-24 px-6 grid grid-cols-1 md:grid-cols-2 mx-auto lg:grid-cols-3 md:gap-2 lg:gap-5 place-items-center">
       <ScrollToTop />
       {productData.map((item) => {
         return (

@@ -4,6 +4,11 @@ import { flexCenter } from "../../style";
 import { useLoaderData } from "react-router-dom";
 
 import { AiFillHeart, AiOutlineHeart, AiOutlinePlus } from "react-icons/ai";
+import { BsCartCheck } from "react-icons/bs";
+import { MdOutlinePrecisionManufacturing } from "react-icons/md";
+import { TbIroning1, TbBleachOff } from "react-icons/tb";
+
+import "react-toastify/dist/ReactToastify.css";
 import Recommend from "../UI/Recommend";
 import ScrollToTop from "../Utils/ScrollToTop";
 import { cartActions } from "../../store/cart-slice";
@@ -70,6 +75,32 @@ const ProductDetails = () => {
     onCart = currentProduct[0].onCart;
     onLiked = currentProduct[0].liked;
   }
+
+  const getDates = () => {
+    const today = new Date();
+    const nextThreeDays = [...Array(3)].map((_, index) => {
+      const nextDay = new Date();
+      nextDay.setDate(today.getDate() + index + 1);
+      return nextDay.toLocaleDateString("en-US", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      });
+    });
+
+    const formattedDates = [
+      today.toLocaleDateString("en-US", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      }),
+      ...nextThreeDays,
+    ];
+
+    return formattedDates;
+  };
+
+  const dates = getDates();
 
   return (
     <Fragment>
@@ -160,20 +191,37 @@ const ProductDetails = () => {
               {productDetails.importedBy}
             </p>
             <ul className="flex flex-col gap-y-2 mt-3 text-base ">
-              <li>
-                <span>Year Of Production: </span>
-                {productDetails.yearOfProduction}
+              <li className="flex gap-x-2 items-center">
+                <i>
+                  <MdOutlinePrecisionManufacturing />
+                </i>{" "}
+                Year Of Production: {productDetails.yearOfProduction}
               </li>
-              <li>Do not use Bleach</li>
-              <li>Iron at a maximum of 110ºC/230ºF</li>
+              <li className="flex gap-x-2 items-center">
+                <i>
+                  <TbBleachOff />
+                </i>{" "}
+                Do not use Bleach
+              </li>
+              <li className="flex gap-x-2 items-center">
+                <i>
+                  <TbIroning1 />
+                </i>
+                Iron at a maximum of 110ºC/230ºF
+              </li>
             </ul>
           </div>
         </div>
         <div className="px-5 my-5 lg:flex lg:justify-center flex-col lg:items-center lg:text-center">
-          <h5 className="text-lg  mb-2">Delivery</h5>
+          <h5 className="text-lg flex gap-x-2 items-center mb-2">
+            <i>
+              <BsCartCheck />
+            </i>
+            Delivery{" "}
+          </h5>
           <p className="flex flex-col lg:justify-center text-base">
             <span className="text-lg leading-8">Free Flat Rate Shipping</span>
-            Estimated to be delivered 12/06/23 - 19/06/23
+            Estimated to be delivered {`${dates[0]} - ${dates[3]}`}
           </p>
         </div>
       </main>

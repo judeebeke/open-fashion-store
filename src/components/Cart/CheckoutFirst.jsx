@@ -48,7 +48,7 @@ const CheckoutFirst = (props) => {
         >
           <AiOutlineArrowLeft />
         </button>
-        <SectionTitle titletext="YOUR CART" />
+        <SectionTitle titletext="CHECKOUT" />
         {isCart ? (
           <>
             {cartItems.map((item) => {
@@ -116,6 +116,7 @@ const CheckoutFirst = (props) => {
       <button
         className="fixed bottom-0 left-0 w-full h-auto mt-5 text-center flex justify-center items-center gap-x-4 p-4 bg-title text-offwhite hover:opacity-90 transition-all duration-300 ease-in-out"
         onClick={onCheckNext}
+        disabled={isCart ? false : true}
       >
         <AiOutlineShopping className="text-2xl" />
         CHECKOUT
