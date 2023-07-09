@@ -1,13 +1,15 @@
-import { json } from "react-router-dom";
+import { json, defer } from "react-router-dom";
 import axios from "axios";
 
 let apikey = import.meta.env.VITE_API_KEY_OPEN_FASHION;
 let apihost = import.meta.env.VITE_API_HOST;
 
+const HM_API_URL = "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com";
+
 export const newArrivalLoader = async () => {
   const options = {
     method: "GET",
-    url: "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list",
+    url: `${HM_API_URL}/products/list`,
     params: {
       country: "us",
       lang: "en",
@@ -33,7 +35,7 @@ export const newArrivalLoader = async () => {
 export const offersLoader = async () => {
   const options = {
     method: "GET",
-    url: "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list",
+    url: `${HM_API_URL}/products/list`,
     params: {
       country: "us",
       lang: "en",
@@ -55,3 +57,10 @@ export const offersLoader = async () => {
     throw json({ message: null }, { status: 500, statusText: error.message });
   }
 };
+
+export async function loader() {
+  return defer({
+    newArrivals: await newArrivalLoader(),
+    offersData: offersLoader(),
+  });
+}

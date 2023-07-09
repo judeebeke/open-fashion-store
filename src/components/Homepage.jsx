@@ -1,4 +1,5 @@
-import { useRouteLoaderData, useLoaderData } from "react-router-dom";
+import { Suspense } from "react";
+import { useRouteLoaderData, Await } from "react-router-dom";
 
 import { BsSearch } from "react-icons/bs";
 
@@ -14,10 +15,10 @@ import Trending from "./UI/Trending";
 import OpenFashion from "./HomepageSections/OpenFashion";
 import FollowUs from "./HomepageSections/FollowUs";
 import Footer from "./Footer";
+import MiniLoader from "./UI/MiniLoader";
 
 const Homepage = () => {
-  const offerData = useRouteLoaderData("for-you");
-  const newArrival = useLoaderData();
+  const { newArrivals, offersData } = useRouteLoaderData("for-you");
 
   return (
     <>
@@ -37,14 +38,26 @@ const Homepage = () => {
         </Button>
       </section>
       <main>
-        <NewArrival newArrivalData={newArrival} />
+        <Suspense fallback={<MiniLoader />}>
+          <Await resolve={newArrivals}>
+            {(loadednewArrivals) => (
+              <NewArrival newArrivalData={loadednewArrivals} />
+            )}
+          </Await>
+        </Suspense>
         <Brands />
         <Collection />
-        <Product offerData={offerData} />
+        <Suspense fallback={<MiniLoader />}>
+          <Await resolve={offersData}>
+            {(loadedOffersData) => <Product offerData={loadedOffersData} />}
+          </Await>
+        </Suspense>
+
         <Trending tagList={trendingTags} tagsTitle="TRENDING" />
         <OpenFashion />
         <FollowUs />
       </main>
+      <MiniLoader />
       <Footer />
     </>
   );

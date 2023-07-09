@@ -1,31 +1,27 @@
 import { Suspense, lazy } from "react";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import Homepage from "./components/Homepage";
 import Root from "./components/Root";
 import ErrorPage from "./components/ErrorPage";
 import BlogRootElement from "./components/Blog/BlogRootElement";
 import Post from "./components/Blog/Post";
-
-import { loader as postLoader } from "./components/Blog/PostLoader";
 import Loader from "./components/UI/Loader";
 import ProductPage from "./components/Products/ProuductPage";
 import Products from "./components/Products/Products";
 
+import { loader as postLoader } from "./components/Blog/PostLoader";
 import { loader as productsLoader } from "./components/Products/productCategoryLoader";
+import { loader as homepageLoader } from "./components/HomepageSections/HomeLoader";
 
-import { loader as productsDetailsLoader } from "./components/Products/ProductDetailsLoader";
-import ProductDetails from "./components/Products/ProductDetails";
-
-import {
-  newArrivalLoader,
-  offersLoader,
-} from "./components/HomepageSections/HomeLoader";
 import CartRoot from "./components/Cart/CartRoot";
 import Checkout from "./components/Cart/Checkout";
 
 const Blog = lazy(() => import("./components/Blog/Blog"));
 const ProductRoot = lazy(() => import("./components/Products/ProductRoot"));
+const ProductDetails = lazy(() =>
+  import("./components/Products/ProductDetails")
+);
 
 function App() {
   const router = createBrowserRouter([
@@ -33,13 +29,12 @@ function App() {
       path: "/",
       element: <Root />,
       id: "for-you",
-      loader: offersLoader,
+      loader: homepageLoader,
       errorElement: <ErrorPage />,
       children: [
         {
           index: true,
           element: <Homepage />,
-          loader: newArrivalLoader,
         },
 
         {
@@ -72,8 +67,7 @@ function App() {
           path: "product",
           element: (
             <Suspense fallback={<Loader />}>
-              {" "}
-              <ProductRoot />{" "}
+              <ProductRoot />
             </Suspense>
           ),
           id: "prod-data",
@@ -95,8 +89,15 @@ function App() {
 
             {
               path: "/product/productdetails/:id",
-              element: <ProductDetails />,
-              loader: productsDetailsLoader,
+              element: (
+                <Suspense fallback={<Loader />}>
+                  <ProductDetails />
+                </Suspense>
+              ),
+              loader: (meta) =>
+                import("./components/Products/ProductDetailsLoader").then(
+                  (module) => module.loader(meta)
+                ),
             },
           ],
         },

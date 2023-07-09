@@ -1,4 +1,5 @@
-import { Fragment } from "react";
+import { Suspense, lazy, Fragment } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { flexCenter } from "../../style";
 import { useLoaderData } from "react-router-dom";
@@ -7,12 +8,14 @@ import { AiFillHeart, AiOutlineHeart, AiOutlinePlus } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { MdOutlinePrecisionManufacturing } from "react-icons/md";
 import { TbIroning1, TbBleachOff } from "react-icons/tb";
+import MiniLoader from "../UI/MiniLoader";
 
 import "react-toastify/dist/ReactToastify.css";
-import Recommend from "../UI/Recommend";
 import ScrollToTop from "../Utils/ScrollToTop";
 import { cartActions } from "../../store/cart-slice";
 import { uiActions } from "../../store/ui-slice";
+
+const Recommend = lazy(() => import("../UI/Recommend"));
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -225,7 +228,9 @@ const ProductDetails = () => {
           </p>
         </div>
       </main>
-      <Recommend />
+      <Suspense fallback={<MiniLoader />}>
+        <Recommend />
+      </Suspense>
     </Fragment>
   );
 };

@@ -4,10 +4,12 @@ import axios from "axios";
 let apikey = import.meta.env.VITE_API_KEY_OPEN_FASHION;
 let apihost = import.meta.env.VITE_API_HOST;
 
+const HM_API_URL = "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com";
+
 export const productLoader = async () => {
   const options = {
     method: "GET",
-    url: "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list",
+    url: `${HM_API_URL}/products/list`,
     params: {
       country: "us",
       lang: "en",
