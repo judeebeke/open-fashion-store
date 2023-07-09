@@ -19,16 +19,20 @@ const OpenFashion = () => {
     <section className={`bg-inputbg px-6 py-12 ${flexCenter} flex-col`}>
       <SectionTitle titleElement={titleElem} />
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-4 text-center pt-9">
-      {openFashionInfo.map((item) => {
-        return (
+        {openFashionInfo.map((item) => {
+          return (
             <figure key={item.id} className={`${flexCenter} gap-3 flex-col`}>
-                <img src={item.icon} alt={`Open Fashion Icon that displays ${item.info}`} />
-                <p>{item.info}</p>
+              <img
+                src={item.icon}
+                loading="lazy"
+                alt={`Open Fashion Icon that displays ${item.info}`}
+              />
+              <p>{item.info}</p>
             </figure>
-            )
+          );
         })}
       </div>
-        <img src={signature} className="pt-5 w-24" alt="Rope Art" />
+      <img src={signature} className="pt-5 w-24" alt="Rope Art" />
     </section>
   );
 };

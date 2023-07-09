@@ -25,6 +25,7 @@ const ProductPage = () => {
             <img
               src={item.defaultArticle.images[0].url}
               className="object-contain"
+              loading="lazy"
               alt={item.defaultArticle.name}
             />
 

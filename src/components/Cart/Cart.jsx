@@ -60,7 +60,12 @@ const Cart = () => {
                   key={item.id}
                   className="flex flex-row justify-start items-center gap-x-3 mt-5 py-3"
                 >
-                  <img src={item.image} className="w-2/5" alt="Sample Cart" />
+                  <img
+                    src={item.image}
+                    className="w-2/5"
+                    loading="lazy"
+                    alt="Sample Cart"
+                  />
                   <div className="flex flex-col gap-y-3">
                     <h3 className="text-xl">{item.title}</h3>
                     <p className="text-xs">{item.sampName}</p>

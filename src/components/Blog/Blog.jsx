@@ -48,6 +48,7 @@ const Blog = () => {
                 <img
                   src={postImage.imageUrl}
                   className="w-full h-80 object-cover"
+                  loading="lazy"
                   alt={post.title}
                 />
                 <div className="image-overlay"></div>

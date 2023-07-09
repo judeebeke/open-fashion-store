@@ -21,6 +21,7 @@ const Post = () => {
           <img
             src={data}
             className="w-full lg:w-96 object-cover"
+            loading="lazy"
             alt={post.title}
           />
           <span className="w-full">
