@@ -32,7 +32,7 @@ const Header = () => {
             <BsSearch />
           </i>
         </button>
-        <button role="button" onClick={cartActiveHandler}>
+        <button role="cart button" onClick={cartActiveHandler}>
           <i className="text-body relative">
             {cart > 0 && (
               <p className="absolute -top-3 -right-1 bg-secondary w-5 p-1 rounded-full text-center text-xs">

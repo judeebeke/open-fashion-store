@@ -57,7 +57,7 @@ const Homepage = () => {
         <OpenFashion />
         <FollowUs />
       </main>
-      <MiniLoader />
+
       <Footer />
     </>
   );
