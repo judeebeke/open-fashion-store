@@ -2,10 +2,11 @@
 import { useDispatch } from "react-redux";
 import AliceCarousel from "react-alice-carousel";
 import { PropTypes } from "prop-types";
-import { Link } from "react-router-dom";
 
 import "react-alice-carousel/lib/alice-carousel.css";
 import { uiActions } from "../../store/ui-slice";
+import ProductInfo from "./ProductInfo";
+import { sendSelectedImage } from "../../store/ui-actions";
 
 const SemiDiamond = ({ isActive }) => (
   <span
@@ -28,6 +29,7 @@ const Carousel = (props) => {
 
   const getImageHandler = (image, id) => {
     dispatch(uiActions.getSelectedProductImage({ image: image, id: id }));
+    dispatch(sendSelectedImage({ image: image, id: id }));
   };
 
   const responsive = {
@@ -38,35 +40,14 @@ const Carousel = (props) => {
 
   const products = productData.map((item) => {
     return (
-      <figure
+      <ProductInfo
         key={item.defaultArticle.code}
-        className={`flex flex-col justify-center items-center text-center pt-9`}
-      >
-        <img
-          src={item.defaultArticle.images[0].url}
-          className="object-contain"
-          loading="lazy"
-          alt={item.defaultArticle.name}
-        />
-
-        <Link
-          to={`/product/productdetails/${item.defaultArticle.code}`}
-          className={`flex flex-col justify-center items-center text-center`}
-          onClick={() => {
-            getImageHandler(
-              item.defaultArticle.images[0].url,
-              item.defaultArticle.code
-            );
-          }}
-        >
-          <h5 className="w-4/6 text-body text-lg pt-1">
-            {item.defaultArticle.name}
-          </h5>
-          <p className="text-primary text-xl">
-            {item.defaultArticle.whitePrice.formattedValue}
-          </p>
-        </Link>
-      </figure>
+        itemCode={item.defaultArticle.code}
+        itemImage={item.defaultArticle.images[0].url}
+        itemName={item.defaultArticle.name}
+        itemPrice={item.defaultArticle.whitePrice.formattedValue}
+        getImageCodeHandler={getImageHandler}
+      />
     );
   });
 

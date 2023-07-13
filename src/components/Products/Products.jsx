@@ -1,11 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link, useLoaderData, json, useParams } from "react-router-dom";
+import { useLoaderData, json, useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 
 import ScrollToTop from "../Utils/ScrollToTop";
+import ProductInfo from "../UI/ProductInfo";
+import { sendSelectedImage } from "../../store/ui-actions";
 
 const ITEMS_PER_PAGE = 8; // Number of items to display per page
 
@@ -17,6 +19,7 @@ const Products = () => {
 
   const getImageHandler = (image, id) => {
     dispatch(uiActions.getSelectedProductImage({ image: image, id: id }));
+    dispatch(sendSelectedImage({ image: image, id: id }));
   };
 
   const makePostRequest = useCallback(
@@ -62,35 +65,14 @@ const Products = () => {
       <ScrollToTop />
       <ul className="grid grid-cols-1 md:grid-cols-2 mx-auto lg:grid-cols-4 md:gap-2 lg:gap-5 place-items-center">
         {currentItems.map((item) => (
-          <figure
+          <ProductInfo
             key={item.defaultArticle.code}
-            className={`flex flex-col justify-center items-center text-center pt-9`}
-          >
-            <img
-              src={item.defaultArticle.images[0].url}
-              className="object-contain"
-              loading="lazy"
-              alt={item.defaultArticle.name}
-            />
-
-            <Link
-              to={`/product/productdetails/${item.defaultArticle.code}`}
-              className={`flex flex-col justify-center items-center text-center`}
-              onClick={() => {
-                getImageHandler(
-                  item.defaultArticle.images[0].url,
-                  item.defaultArticle.code
-                );
-              }}
-            >
-              <h5 className="w-4/6 text-body text-lg pt-1">
-                {item.defaultArticle.name}
-              </h5>
-              <p className="text-primary text-xl">
-                {item.defaultArticle.whitePrice.formattedValue}
-              </p>
-            </Link>
-          </figure>
+            itemCode={item.defaultArticle.code}
+            itemImage={item.defaultArticle.images[0].url}
+            itemName={item.defaultArticle.name}
+            itemPrice={item.defaultArticle.whitePrice.formattedValue}
+            getImageCodeHandler={getImageHandler}
+          />
         ))}
       </ul>
       {/* Render the pagination component */}

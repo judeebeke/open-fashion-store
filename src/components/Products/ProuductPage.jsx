@@ -1,9 +1,11 @@
 // import SectionTitle from "../UI/SectionTitle";
 
-import { Link, useRouteLoaderData } from "react-router-dom";
+import { useRouteLoaderData } from "react-router-dom";
 import ScrollToTop from "../Utils/ScrollToTop";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
+import ProductInfo from "../UI/ProductInfo";
+import { sendSelectedImage } from "../../store/ui-actions";
 
 const ProductPage = () => {
   const productData = useRouteLoaderData("prod-data");
@@ -11,6 +13,7 @@ const ProductPage = () => {
 
   const getImageHandler = (image, id) => {
     dispatch(uiActions.getSelectedProductImage({ image: image, id: id }));
+    dispatch(sendSelectedImage({ image: image, id: id }));
   };
 
   return (
@@ -18,35 +21,14 @@ const ProductPage = () => {
       <ScrollToTop />
       {productData.map((item) => {
         return (
-          <figure
+          <ProductInfo
             key={item.defaultArticle.code}
-            className={`flex flex-col justify-center items-center text-center pt-9`}
-          >
-            <img
-              src={item.defaultArticle.images[0].url}
-              className="object-contain"
-              loading="lazy"
-              alt={item.defaultArticle.name}
-            />
-
-            <Link
-              to={`/product/productdetails/${item.defaultArticle.code}`}
-              className={`flex flex-col justify-center items-center text-center`}
-              onClick={() => {
-                getImageHandler(
-                  item.defaultArticle.images[0].url,
-                  item.defaultArticle.code
-                );
-              }}
-            >
-              <h5 className="w-4/6 text-body text-lg pt-1">
-                {item.defaultArticle.name}
-              </h5>
-              <p className="text-primary text-xl">
-                {item.defaultArticle.whitePrice.formattedValue}
-              </p>
-            </Link>
-          </figure>
+            itemCode={item.defaultArticle.code}
+            itemImage={item.defaultArticle.images[0].url}
+            itemName={item.defaultArticle.name}
+            itemPrice={item.defaultArticle.whitePrice.formattedValue}
+            getImageCodeHandler={getImageHandler}
+          />
         );
       })}
     </section>

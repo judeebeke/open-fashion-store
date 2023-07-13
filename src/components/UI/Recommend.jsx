@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { json } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
+import ProductInfo from "./ProductInfo";
 
 const Recommend = () => {
   const [currentData, setCurrentData] = useState([]);
@@ -56,35 +56,14 @@ const Recommend = () => {
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {currentData.map((item) => {
           return (
-            <figure
+            <ProductInfo
               key={item.defaultArticle.code}
-              className={`flex flex-col justify-center items-center text-center pt-9`}
-            >
-              <img
-                src={item.defaultArticle.images[0].url}
-                className="object-contain"
-                loading="lazy"
-                alt={item.defaultArticle.name}
-              />
-
-              <Link
-                to={`/product/productdetails/${item.defaultArticle.code}`}
-                className={`flex flex-col justify-center items-center text-center`}
-                onClick={() => {
-                  getImageHandler(
-                    item.defaultArticle.images[0].url,
-                    item.defaultArticle.code
-                  );
-                }}
-              >
-                <h5 className="w-4/6 text-body text-lg pt-1">
-                  {item.defaultArticle.name}
-                </h5>
-                <p className="text-primary text-xl">
-                  {item.defaultArticle.whitePrice.formattedValue}
-                </p>
-              </Link>
-            </figure>
+              itemCode={item.defaultArticle.code}
+              itemImage={item.defaultArticle.images[0].url}
+              itemName={item.defaultArticle.name}
+              itemPrice={item.defaultArticle.whitePrice.formattedValue}
+              getImageCodeHandler={getImageHandler}
+            />
           );
         })}
       </section>

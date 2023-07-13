@@ -1,4 +1,4 @@
-import { Suspense, lazy, Fragment } from "react";
+import { Suspense, lazy, Fragment, useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { flexCenter } from "../../style";
@@ -9,11 +9,13 @@ import { BsCartCheck } from "react-icons/bs";
 import { MdOutlinePrecisionManufacturing } from "react-icons/md";
 import { TbIroning1, TbBleachOff } from "react-icons/tb";
 import MiniLoader from "../UI/MiniLoader";
+import placeholderImage from "lorem-picsum";
 
 import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "../Utils/ScrollToTop";
 import { cartActions } from "../../store/cart-slice";
 import { uiActions } from "../../store/ui-slice";
+import { fetchSelectedImage } from "../../store/ui-actions";
 
 const Recommend = lazy(() => import("../UI/Recommend"));
 
@@ -21,6 +23,10 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
 
   const productImage = useSelector((state) => state.ui.currentProductImage);
+
+  useEffect(() => {
+    dispatch(fetchSelectedImage());
+  }, [dispatch]);
 
   const cartItems = useSelector((state) => state.cart.items);
   const productDetails = useLoaderData();
@@ -110,7 +116,7 @@ const ProductDetails = () => {
       <ScrollToTop />
       <main className="mt-20 flex flex-col">
         <img
-          src={productImage}
+          src={productImage || placeholderImage({ width: 400, height: 300 })}
           className="mx-auto w-full h-auto lg:w-1/3 object-cover px-5"
           alt={productDetails.name}
         />
