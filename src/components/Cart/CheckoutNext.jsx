@@ -41,7 +41,7 @@ const CheckoutFirst = (props) => {
         orderHandler();
       },
       onClose: () => {
-        navigate("/");
+        navigate("/product");
       },
     });
   };

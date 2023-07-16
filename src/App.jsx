@@ -5,23 +5,23 @@ import Homepage from "./components/Homepage";
 import Root from "./components/Root";
 import ErrorPage from "./components/ErrorPage";
 import BlogRootElement from "./components/Blog/BlogRootElement";
-import Post from "./components/Blog/Post";
 import Loader from "./components/UI/Loader";
-import ProductPage from "./components/Products/ProuductPage";
-import Products from "./components/Products/Products";
 
 import { loader as postLoader } from "./components/Blog/PostLoader";
-import { loader as productsLoader } from "./components/Products/productCategoryLoader";
 import { loader as homepageLoader } from "./components/HomepageSections/HomeLoader";
 
 import CartRoot from "./components/Cart/CartRoot";
 import Checkout from "./components/Cart/Checkout";
 
 const Blog = lazy(() => import("./components/Blog/Blog"));
-const ProductRoot = lazy(() => import("./components/Products/ProductRoot"));
+const Post = lazy(() => import("./components/Blog/Post"));
+
 const ProductDetails = lazy(() =>
   import("./components/Products/ProductDetails")
 );
+const Products = lazy(() => import("./components/Products/Products"));
+const ProductRoot = lazy(() => import("./components/Products/ProductRoot"));
+const ProductPage = lazy(() => import("./components/Products/ProuductPage"));
 
 function App() {
   const router = createBrowserRouter([
@@ -57,7 +57,11 @@ function App() {
 
             {
               path: "/blog/:blogid",
-              element: <Post />,
+              element: (
+                <Suspense fallback={<Loader />}>
+                  <Post />
+                </Suspense>
+              ),
               loader: postLoader,
             },
           ],
@@ -78,15 +82,25 @@ function App() {
           children: [
             {
               index: true,
-              element: <ProductPage />,
+              element: (
+                <Suspense fallback={<Loader />}>
+                  <ProductPage />
+                </Suspense>
+              ),
             },
 
             {
               path: "/product/:prodid",
-              element: <Products />,
-              loader: productsLoader,
+              element: (
+                <Suspense fallback={<Loader />}>
+                  <Products />
+                </Suspense>
+              ),
+              loader: (meta) =>
+                import("./components/Products/productCategoryLoader").then(
+                  (module) => module.loader(meta)
+                ),
             },
-
             {
               path: "/product/productdetails/:id",
               element: (

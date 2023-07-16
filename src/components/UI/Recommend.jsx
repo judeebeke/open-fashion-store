@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import useImageResizer from "../Utils/useImageResizer";
 
 import { PropTypes } from "prop-types";
 import { json } from "react-router-dom";
@@ -17,6 +18,9 @@ const Recommend = () => {
     dispatch(uiActions.getSelectedProductImage({ image: image, id: id }));
     dispatch(uiActions.getRandomNumber());
   };
+
+  const { compressedProductData, imagesCompressor: productImagesCompressor } =
+    useImageResizer();
 
   useEffect(() => {
     const recommendLoader = async () => {
@@ -50,16 +54,22 @@ const Recommend = () => {
     recommendLoader();
   }, [currentMenu, randomNumber]);
 
+  useEffect(() => {
+    if (currentData.length > 0) {
+      productImagesCompressor(currentData);
+    }
+  }, [currentData, productImagesCompressor]);
+
   return (
     <>
       <h2 className="text-center text-2xl">You May Also Like</h2>
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        {currentData.map((item) => {
+        {compressedProductData.map((item) => {
           return (
             <ProductInfo
               key={item.defaultArticle.code}
               itemCode={item.defaultArticle.code}
-              itemImage={item.defaultArticle.images[0].url}
+              itemImage={item.compressedImage}
               itemName={item.defaultArticle.name}
               itemPrice={item.defaultArticle.whitePrice.formattedValue}
               getImageCodeHandler={getImageHandler}

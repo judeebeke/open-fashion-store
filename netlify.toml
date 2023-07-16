@@ -32,3 +32,13 @@ to = "/index.html"
 from = "/product/:prodid"
 status = 200
 to = "/index.html"
+
+[[redirects]]
+from = "/product/productdetails/:id"
+status = 200
+to = "/index.html"
+
+[[redirects]]
+from = "/checkout"
+status = 200
+to = "/index.html"

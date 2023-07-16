@@ -8,6 +8,7 @@ import { uiActions } from "../../store/ui-slice";
 import ScrollToTop from "../Utils/ScrollToTop";
 import ProductInfo from "../UI/ProductInfo";
 import { sendSelectedImage } from "../../store/ui-actions";
+import useImageResizer from "../Utils/useImageResizer";
 
 const ITEMS_PER_PAGE = 8; // Number of items to display per page
 
@@ -16,6 +17,8 @@ const Products = () => {
   const { prodid } = useParams();
   const productData = useLoaderData();
   const dispatch = useDispatch();
+  const { compressedProductData, imagesCompressor: productImagesCompressor } =
+    useImageResizer();
 
   const getImageHandler = (image, id) => {
     dispatch(uiActions.getSelectedProductImage({ image: image, id: id }));
@@ -30,7 +33,6 @@ const Products = () => {
           url: `https://open-fashion-55eda-default-rtdb.firebaseio.com/products/${prodid}.json`,
           data: JSON.stringify(data),
         };
-
         const response = await axios.request(options);
         return response;
       } catch (error) {
@@ -47,6 +49,12 @@ const Products = () => {
     makePostRequest(productData);
   }, [productData, makePostRequest]);
 
+  useEffect(() => {
+    if (productData.length > 0) {
+      productImagesCompressor(productData);
+    }
+  }, [productData, productImagesCompressor]);
+
   localStorage.setItem("product-subcategory", prodid);
 
   const handlePageChange = (selectedPage) => {
@@ -55,7 +63,7 @@ const Products = () => {
 
   const pageCount = Math.ceil(productData.length / ITEMS_PER_PAGE);
 
-  const currentItems = productData.slice(
+  const currentItems = compressedProductData.slice(
     currentPage * ITEMS_PER_PAGE,
     (currentPage + 1) * ITEMS_PER_PAGE
   );
@@ -68,7 +76,7 @@ const Products = () => {
           <ProductInfo
             key={item.defaultArticle.code}
             itemCode={item.defaultArticle.code}
-            itemImage={item.defaultArticle.images[0].url}
+            itemImage={item.compressedImage}
             itemName={item.defaultArticle.name}
             itemPrice={item.defaultArticle.whitePrice.formattedValue}
             getImageCodeHandler={getImageHandler}

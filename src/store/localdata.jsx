@@ -117,10 +117,10 @@ export const openFashionInfo = [
 ];
 
 export const followUs = [
-  { img: group1, link: "@mia", id: "gr1" },
-  { img: group2, link: "@jihyn", id: "gr2" },
-  { img: group3, link: "@mia", id: "gr3" },
-  { img: group4, link: "@jihyn", id: "gr4" },
+  { image: group1, link: "@mia", id: "gr1" },
+  { image: group2, link: "@jihyn", id: "gr2" },
+  { image: group3, link: "@mia", id: "gr3" },
+  { image: group4, link: "@jihyn", id: "gr4" },
 ];
 
 export const socialIcons = [

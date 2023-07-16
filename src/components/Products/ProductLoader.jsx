@@ -15,7 +15,7 @@ export const productLoader = async () => {
       lang: "en",
       currentpage: "0",
       pagesize: "10",
-      categories: "home_all",
+      categories: "ladies_all",
     },
     headers: {
       "X-RapidAPI-Key": apikey,
