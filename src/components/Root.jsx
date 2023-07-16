@@ -1,10 +1,10 @@
+import { Suspense, useEffect, lazy } from "react";
 import { Outlet, useNavigation } from "react-router-dom";
 import Header from "./Header";
 import Loader from "./UI/Loader";
-import CartModal from "./Cart/Cart";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 import { fetchCart, sendCart } from "../store/cart-actions";
+const CartModal = lazy(() => import("./Cart/Cart"));
 
 const Root = () => {
   const cartActive = useSelector((state) => state.ui.cartActive);
@@ -35,7 +35,11 @@ const Root = () => {
 
   return (
     <div>
-      {cartActive && <CartModal />}
+      {cartActive && (
+        <Suspense fallback={<Loader />}>
+          <CartModal />
+        </Suspense>
+      )}
       <Header />
       {navigation.state === "loading" && <Loader />}
       <Outlet />

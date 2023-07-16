@@ -10,7 +10,6 @@ export const sendCart = (data) => {
         url: `https://open-fashion-55eda-default-rtdb.firebaseio.com/cart.json`,
         data: JSON.stringify(data),
       };
-
       const response = await axios.request(options);
       return response;
     } catch (error) {

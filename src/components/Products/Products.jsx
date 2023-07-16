@@ -76,7 +76,8 @@ const Products = () => {
           <ProductInfo
             key={item.defaultArticle.code}
             itemCode={item.defaultArticle.code}
-            itemImage={item.compressedImage}
+            itemImage={item.defaultArticle.images[0].url}
+            itemImageBlob={item.compressedImage}
             itemName={item.defaultArticle.name}
             itemPrice={item.defaultArticle.whitePrice.formattedValue}
             getImageCodeHandler={getImageHandler}

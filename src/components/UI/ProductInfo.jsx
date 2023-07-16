@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 import placeholderImage from "lorem-picsum";
 
 const ProductInfo = (props) => {
-  let { itemCode, itemImage, itemName, itemPrice, getImageCodeHandler } = props;
+  let {
+    itemCode,
+    itemImage,
+    itemImageBlob,
+    itemName,
+    itemPrice,
+    getImageCodeHandler,
+  } = props;
   return (
     <>
       <figure
@@ -11,7 +18,7 @@ const ProductInfo = (props) => {
         className={`flex flex-col justify-center items-center text-center pt-9`}
       >
         <img
-          src={itemImage || placeholderImage({ width: 400, height: 300 })}
+          src={itemImageBlob || placeholderImage({ width: 400, height: 300 })}
           className="object-contain"
           loading="lazy"
           alt={itemName}
@@ -35,6 +42,7 @@ const ProductInfo = (props) => {
 ProductInfo.propTypes = {
   itemCode: PropTypes.string,
   itemImage: PropTypes.string,
+  itemImageBlob: PropTypes.string,
   itemName: PropTypes.string,
   itemPrice: PropTypes.string,
   getImageCodeHandler: PropTypes.func,

@@ -5,9 +5,9 @@ const useImageResizer = () => {
   const [compressedProductData, setCompressedProductData] = useState([]);
 
   const compressImageHandeler = async (imageFile) => {
-    const maxWidth = 800; // Maximum width of the compressed image
-    const maxHeight = 600; // Maximum height of the compressed image
-    const quality = 75; // Image quality (0-100)
+    const maxWidth = 500; // Maximum width of the compressed image
+    const maxHeight = 300; // Maximum height of the compressed image
+    const quality = 80; // Image quality (0-100)
     const fileType = "WEBP"; // Output file type ('JPEG', 'PNG', 'WEBP')
 
     return new Promise((resolve) => {
@@ -55,7 +55,7 @@ const useImageResizer = () => {
     const blob = await response.blob();
     const compressedImg = await compressImageHandeler(blob);
     const compressedImageUrl = URL.createObjectURL(compressedImg);
-    setCompressedProductData(compressedImageUrl)
+    setCompressedProductData(compressedImageUrl);
   }, []);
 
   return {
