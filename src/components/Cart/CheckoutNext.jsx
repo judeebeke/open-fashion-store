@@ -3,8 +3,8 @@ import { AiOutlineArrowLeft, AiOutlinePlus } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { PropTypes } from "prop-types";
-import { ToastContainer, toast } from "react-toastify";
 import { cartActions } from "../../store/cart-slice";
+import { handleOrderNotification } from "../../store/ui-actions";
 import { sendCart } from "../../store/cart-actions";
 
 const CheckoutFirst = (props) => {
@@ -33,17 +33,8 @@ const CheckoutFirst = (props) => {
         totalQuantity: "",
       })
     );
-  };
-
-  const handleClick = () => {
-    toast("Successfully Placed an Order!", {
-      onOpen: () => {
-        orderHandler();
-      },
-      onClose: () => {
-        navigate("/product");
-      },
-    });
+    navigate("/product");
+    dispatch(handleOrderNotification());
   };
 
   return (
@@ -71,21 +62,11 @@ const CheckoutFirst = (props) => {
         </div>
         <button
           className="absolute bottom-0 left-0 w-screen h-auto mt-5 text-center flex flex-col justify-center items-center gap-x-4 bg-title p-4 text-offwhite hover:opacity-90 transition-all duration-300 ease-in-out"
-          onClick={handleClick}
+          onClick={orderHandler}
         >
           PLACE ORDER
         </button>
       </section>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        closeOnClick
-        rtl={false}
-        draggable={false}
-        pauseOnHover
-        theme="light"
-      />
     </>
   );
 };

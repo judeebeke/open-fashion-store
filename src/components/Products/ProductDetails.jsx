@@ -1,15 +1,15 @@
-import { Suspense, lazy, Fragment, useEffect } from "react";
+import { Suspense, lazy, Fragment, useEffect, useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { flexCenter } from "../../style";
 import { useLoaderData } from "react-router-dom";
+
+import { flexCenter } from "../../style";
 
 import { AiFillHeart, AiOutlineHeart, AiOutlinePlus } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { MdOutlinePrecisionManufacturing } from "react-icons/md";
 import { TbIroning1, TbBleachOff } from "react-icons/tb";
 import MiniLoader from "../UI/MiniLoader";
-import placeholderImage from "lorem-picsum";
 
 import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "../Utils/ScrollToTop";
@@ -21,14 +21,21 @@ const Recommend = lazy(() => import("../UI/Recommend"));
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
-
+  const [deliveryDate, setDeliveryDate] = useState("");
   const productImage = useSelector((state) => state.ui.currentProductImage);
+  const cartItems = useSelector((state) => state.cart.items);
 
   useEffect(() => {
-    dispatch(fetchSelectedImage());
+    let date;
+    const timeoutId = setTimeout(() => {
+      dispatch(fetchSelectedImage());
+      date = getDates();
+      setDeliveryDate(date);
+    }, 20);
+
+    return () => clearTimeout(timeoutId); // Clean up the timeout on component unmount
   }, [dispatch]);
 
-  const cartItems = useSelector((state) => state.cart.items);
   const productDetails = useLoaderData();
 
   const cartActiveHandler = () => {
@@ -77,6 +84,7 @@ const ProductDetails = () => {
 
   let onCart = "";
   let onLiked = "";
+
   if (currentProduct[0] === undefined) {
     onCart = false;
     onLiked = false;
@@ -109,15 +117,14 @@ const ProductDetails = () => {
     return formattedDates;
   };
 
-  const dates = getDates();
-
   return (
     <Fragment>
       <ScrollToTop />
       <main className="mt-20 flex flex-col">
         <img
-          src={productImage || placeholderImage({ width: 400, height: 300 })}
+          src={productImage}
           className="mx-auto w-full h-auto lg:w-1/3 object-cover px-5"
+          loading="lazy"
           alt={productDetails.name}
         />
         <span className="px-5 py-5 flex flex-col gap-y-2 lg:text-center">
@@ -230,7 +237,8 @@ const ProductDetails = () => {
           </h5>
           <p className="flex flex-col lg:justify-center text-base">
             <span className="text-lg leading-8">Free Flat Rate Shipping</span>
-            Estimated to be delivered {`${dates[0]} - ${dates[3]}`}
+            Estimated to be delivered{" "}
+            {`${deliveryDate[0]} - ${deliveryDate[3]}`}
           </p>
         </div>
       </main>

@@ -28,8 +28,10 @@ const SemiDiamond = ({ isActive }) => (
 const Carousel = (props) => {
   let { productData, letDots } = props;
   let dispatch = useDispatch();
+
   const { compressedProductData, imagesCompressor: productImagesCompressor } =
     useImageResizer();
+
   const getImageHandler = (image, id) => {
     dispatch(uiActions.getSelectedProductImage({ image: image, id: id }));
     dispatch(sendSelectedImage({ image: image, id: id }));

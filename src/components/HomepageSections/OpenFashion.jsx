@@ -7,7 +7,7 @@ import SectionTitle from "./../UI/SectionTitle";
 const OpenFashion = () => {
   const titleElem = (
     <>
-      <img src={logo} alt="Open Fashion Logo" />
+      <img src={logo} alt="Open Fashion Logo" loading="lazy" />
       <p className="my-4 text-center">
         Making a luxurious lifestyle accessible for a generous group of women is
         our daily drive.

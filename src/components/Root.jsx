@@ -5,6 +5,7 @@ import Loader from "./UI/Loader";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCart, sendCart } from "../store/cart-actions";
 const CartModal = lazy(() => import("./Cart/Cart"));
+import { ToastContainer } from "react-toastify";
 
 const Root = () => {
   const cartActive = useSelector((state) => state.ui.cartActive);
@@ -43,6 +44,16 @@ const Root = () => {
       <Header />
       {navigation.state === "loading" && <Loader />}
       <Outlet />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        rtl={false}
+        draggable={false}
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

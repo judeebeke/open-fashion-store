@@ -11,17 +11,30 @@ import { loader as postLoader } from "./components/Blog/PostLoader";
 import { loader as homepageLoader } from "./components/HomepageSections/HomeLoader";
 
 import CartRoot from "./components/Cart/CartRoot";
-import Checkout from "./components/Cart/Checkout";
 
+const Checkout = lazy(() => import("./components/Cart/Checkout"));
 const Blog = lazy(() => import("./components/Blog/Blog"));
 const Post = lazy(() => import("./components/Blog/Post"));
 
+const ProductRoot = lazy(() => import("./components/Products/ProductRoot"));
 const ProductDetails = lazy(() =>
   import("./components/Products/ProductDetails")
 );
 const Products = lazy(() => import("./components/Products/Products"));
-const ProductRoot = lazy(() => import("./components/Products/ProductRoot"));
 const ProductPage = lazy(() => import("./components/Products/ProuductPage"));
+
+const productLoader = (meta) =>
+  import("./components/Products/ProductLoader").then((module) =>
+    module.productLoader(meta)
+  );
+const productCategoryLoader = (meta) =>
+  import("./components/Products/ProductCategoryLoader").then((module) =>
+    module.loader(meta)
+  );
+const productDetailsLoader = (meta) =>
+  import("./components/Products/ProductDetailsLoader").then((module) =>
+    module.loader(meta)
+  );
 
 function App() {
   const router = createBrowserRouter([
@@ -69,16 +82,10 @@ function App() {
 
         {
           path: "product",
-          element: (
-            <Suspense fallback={<Loader />}>
-              <ProductRoot />
-            </Suspense>
-          ),
+          element: <ProductRoot />,
+
           id: "prod-data",
-          loader: (meta) =>
-            import("./components/Products/ProductLoader").then((module) =>
-              module.productLoader(meta)
-            ),
+          loader: productLoader,
           children: [
             {
               index: true,
@@ -96,10 +103,7 @@ function App() {
                   <Products />
                 </Suspense>
               ),
-              loader: (meta) =>
-                import("./components/Products/productCategoryLoader").then(
-                  (module) => module.loader(meta)
-                ),
+              loader: productCategoryLoader,
             },
             {
               path: "/product/productdetails/:id",
@@ -108,10 +112,7 @@ function App() {
                   <ProductDetails />
                 </Suspense>
               ),
-              loader: (meta) =>
-                import("./components/Products/ProductDetailsLoader").then(
-                  (module) => module.loader(meta)
-                ),
+              loader: productDetailsLoader,
             },
           ],
         },
@@ -122,7 +123,11 @@ function App() {
           children: [
             {
               index: true,
-              element: <Checkout />,
+              element: (
+                <Suspense fallback={<Loader />}>
+                  <Checkout />
+                </Suspense>
+              ),
             },
           ],
         },

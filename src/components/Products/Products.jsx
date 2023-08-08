@@ -7,6 +7,7 @@ import { uiActions } from "../../store/ui-slice";
 
 import ScrollToTop from "../Utils/ScrollToTop";
 import ProductInfo from "../UI/ProductInfo";
+import MiniLoader from "../UI/MiniLoader";
 import { sendSelectedImage } from "../../store/ui-actions";
 import useImageResizer from "../Utils/useImageResizer";
 
@@ -102,6 +103,7 @@ const Products = () => {
         disabledClassName={"disabled"}
         breakClassName={"break"}
       />
+      <MiniLoader />
     </div>
   );
 };

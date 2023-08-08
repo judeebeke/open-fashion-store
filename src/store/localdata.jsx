@@ -4,16 +4,6 @@ import {
   AiFillYoutube,
 } from "react-icons/ai";
 
-import productOne from "../assets/product/Product1.jpg";
-import productTwo from "../assets/product/Product2.jpg";
-import productThree from "../assets/product/Product3.jpg";
-import productFour from "../assets/product/Product4.png";
-
-import productFive from "../assets/product/Product5.png";
-import productSix from "../assets/product/Product6.jpg";
-import productSeven from "../assets/product/Product7.png";
-import productEight from "../assets/product/Product8.jpg";
-
 import brandOne from "../assets/brand/Prada.png";
 import brandTwo from "../assets/brand/Boss.png";
 import brandThree from "../assets/brand/Gucci.png";
@@ -38,57 +28,6 @@ export const brands = [
   { image: brandFour, title: "Burberry", id: "br4" },
   { image: brandTwo, title: "Boss", id: "br2" },
   { image: brandFive, title: "Catier", id: "br5" },
-];
-
-export const productsForYou = [
-  {
-    image: productFive,
-    title: "21WN Reversible Wankadan Cardigan",
-    price: "120",
-    id: "pr2",
-  },
-  {
-    image: productSix,
-    title: "Cashmere Blend Cropped Jacket S1AW1WN-AM943",
-    price: "120",
-    id: "pr4",
-  },
-  {
-    image: productSeven,
-    title: "Harris Tweed Three Button Jacket",
-    price: "120",
-    id: "pr1",
-  },
-  {
-    image: productEight,
-    title: "Cashmere Blend Cropped Jacket S1AW1WN-AM943",
-    price: "120",
-    id: "pr3",
-  },
-  {
-    image: productOne,
-    title: "21WN Reversible Wankadan Cardigan",
-    price: "120",
-    id: "pr5",
-  },
-  {
-    image: productTwo,
-    title: "Oblong",
-    price: "120",
-    id: "pr6",
-  },
-  {
-    image: productThree,
-    title: "21WN Reversible Angora Cardigan",
-    price: "120",
-    id: "pr7",
-  },
-  {
-    image: productFour,
-    title: "21WN Reversible Pandra Cardigan",
-    price: "120",
-    id: "pr8",
-  },
 ];
 
 export const trendingTags = [

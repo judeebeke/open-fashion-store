@@ -30,7 +30,7 @@ const CategoryMenu = (props) => {
           {item.submenu.map((link) => {
             return (
               <Link
-                to={`/product/${active}`}
+                to={`/product/${link.navLinksRef}`}
                 key={link.navLinkText}
                 onClick={() => {
                   onCloseNav();

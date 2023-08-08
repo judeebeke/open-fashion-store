@@ -11,7 +11,6 @@ const Brands = () => {
             <figure key={item.id} className="w-24 text-center">
               <img
                 src={item.image}
-                loading="lazy"
                 className="w-full object-contain"
                 alt={item.title}
               />

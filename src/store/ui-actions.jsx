@@ -1,5 +1,6 @@
 import axios from "axios";
 import { json } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { uiActions } from "./ui-slice";
 
@@ -38,4 +39,16 @@ export const fetchSelectedImage = () => {
       throw json({ message: null }, { status: 500, statusText: error.message });
     }
   };
+};
+
+export const handleOrderNotification = () => {
+  toast("Successfully Placed an Order!", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "light",
+  });
 };

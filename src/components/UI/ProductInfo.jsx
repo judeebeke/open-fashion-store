@@ -1,6 +1,5 @@
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
-import placeholderImage from "lorem-picsum";
 
 const ProductInfo = (props) => {
   let {
@@ -17,12 +16,7 @@ const ProductInfo = (props) => {
         key={itemCode}
         className={`flex flex-col justify-center items-center text-center pt-9`}
       >
-        <img
-          src={itemImageBlob || placeholderImage({ width: 400, height: 300 })}
-          className="object-contain"
-          loading="lazy"
-          alt={itemName}
-        />
+        <img src={itemImageBlob} className="object-contain" alt={itemName} />
 
         <Link
           to={`/product/productdetails/${itemCode}`}
