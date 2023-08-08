@@ -21,6 +21,7 @@ const ProductDetails = lazy(() =>
   import("./components/Products/ProductDetails")
 );
 const AboutUs = lazy(() => import("./components/AboutUs"));
+const ContactUs = lazy(() => import("./components/ContactUs"));
 const Products = lazy(() => import("./components/Products/Products"));
 const ProductPage = lazy(() => import("./components/Products/ProuductPage"));
 
@@ -137,6 +138,14 @@ function App() {
           element: (
             <Suspense fallback={<Loader />}>
               <AboutUs />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/contact",
+          element: (
+            <Suspense fallback={<Loader />}>
+              <ContactUs />
             </Suspense>
           ),
         },

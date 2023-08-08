@@ -2,7 +2,11 @@ import {
   AiFillInstagram,
   AiFillTwitterSquare,
   AiFillYoutube,
+  AiOutlineMessage,
 } from "react-icons/ai";
+
+import { BsEnvelopePlus } from "react-icons/bs";
+import { SlSocialTwitter } from "react-icons/sl";
 
 import brandOne from "../assets/brand/Prada.png";
 import brandTwo from "../assets/brand/Boss.png";
@@ -20,6 +24,30 @@ import group1 from "../assets/followus/Group1.png";
 import group2 from "../assets/followus/Group2.png";
 import group3 from "../assets/followus/Group3.png";
 import group4 from "../assets/followus/Group4.png";
+
+export const aboutUs = [
+  {
+    icon: <AiOutlineMessage />,
+    description:
+      "Need an ASAP answer? Contact us via chat, 24/7! For existing furniture orders, please call us.",
+    btnText: "CHAT WITH US",
+    id: "abt1",
+  },
+  {
+    icon: <BsEnvelopePlus />,
+    description:
+      "You can text us at 800-309-2622 – or click on the “text us” link below on your mobile device. Please allow the system to acknowledge a simple greeting (even “Hi” will do!) before providing your question/order details. Consent is not required for any purchase. Message and data rates may apply. Text messaging may not be available via all carriers.",
+    btnText: "TEXT US",
+    id: "abt3",
+  },
+  {
+    icon: <SlSocialTwitter />,
+    description:
+      "To send us a private or direct message, like @Open Fashion on Facebook or follow us on Twitter. We’ll get back to you ASAP. Please include your name, order number, and email address for a faster response!",
+    btnText: "",
+    id: "abt6",
+  },
+];
 
 export const brands = [
   { image: brandOne, title: "Prada", id: "br1" },
