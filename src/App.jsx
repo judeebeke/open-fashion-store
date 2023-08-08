@@ -30,7 +30,7 @@ const productLoader = (meta) =>
     module.productLoader(meta)
   );
 const productsCategoryLoader = (meta) =>
-  import("./components/Products/ProductsCategoryLoader").then((module) =>
+  import("./components/Products/productsCategoryLoader").then((module) =>
     module.loader(meta)
   );
 const productDetailsLoader = (meta) =>
