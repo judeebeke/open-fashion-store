@@ -51,7 +51,11 @@ const Recommend = () => {
         throw json({ message: null }, { status: 500, statusText: error });
       }
     };
-    recommendLoader();
+    const timeout = setTimeout(() => {
+      recommendLoader();
+    }, 30);
+
+    return () => clearTimeout(timeout);
   }, [currentMenu, randomNumber]);
 
   useEffect(() => {

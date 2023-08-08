@@ -20,6 +20,7 @@ const ProductRoot = lazy(() => import("./components/Products/ProductRoot"));
 const ProductDetails = lazy(() =>
   import("./components/Products/ProductDetails")
 );
+const AboutUs = lazy(() => import("./components/AboutUs"));
 const Products = lazy(() => import("./components/Products/Products"));
 const ProductPage = lazy(() => import("./components/Products/ProuductPage"));
 
@@ -27,7 +28,7 @@ const productLoader = (meta) =>
   import("./components/Products/ProductLoader").then((module) =>
     module.productLoader(meta)
   );
-const productCategoryLoader = (meta) =>
+const productsCategoryLoader = (meta) =>
   import("./components/Products/ProductCategoryLoader").then((module) =>
     module.loader(meta)
   );
@@ -103,7 +104,7 @@ function App() {
                   <Products />
                 </Suspense>
               ),
-              loader: productCategoryLoader,
+              loader: productsCategoryLoader,
             },
             {
               path: "/product/productdetails/:id",
@@ -130,6 +131,14 @@ function App() {
               ),
             },
           ],
+        },
+        {
+          path: "/about",
+          element: (
+            <Suspense fallback={<Loader />}>
+              <AboutUs />
+            </Suspense>
+          ),
         },
       ],
     },

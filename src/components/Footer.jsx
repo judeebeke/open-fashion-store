@@ -25,15 +25,22 @@ const Footer = () => {
       <SectionTitle />
 
       <ul className="flex gap-x-5 py-6">
-       {footerLinks.map(link => {
-        return (
-          <li key={link.id} className="uppercase hover:text-secondary"><Link to={link.link}>{link.link}</Link></li>
-        )
-       })}
+        {footerLinks.map((link) => {
+          return (
+            <li key={link.id} className="uppercase hover:text-secondary">
+              <Link to={`/${link.link}`}>{link.link}</Link>
+            </li>
+          );
+        })}
       </ul>
 
       <p>Copyright© OpenUI All Rights Reserved.</p>
-      <p>Developed by <a href="https://github.com/judeebeke" className="hover:text-secondary">Dev. Jude</a></p>
+      <p>
+        Developed by{" "}
+        <a href="https://github.com/judeebeke" className="hover:text-secondary">
+          Dev. Jude
+        </a>
+      </p>
     </footer>
   );
 };
