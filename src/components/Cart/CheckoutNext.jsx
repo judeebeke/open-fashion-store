@@ -16,8 +16,11 @@ const CheckoutFirst = (props) => {
     navigate(-1);
   };
 
+  const handleGoPoductPage = () => {
+    navigate("/product");
+  };
+
   const orderHandler = () => {
-    onCheckNext();
     dispatch(
       cartActions.replaceCart({
         items: [],
@@ -26,14 +29,23 @@ const CheckoutFirst = (props) => {
         isChangedData: true,
       })
     );
-    dispatch(
-      sendCart({
-        items: [],
-        totalPrice: "",
-        totalQuantity: "",
-      })
-    );
-    navigate("/product");
+
+    setTimeout(() => {
+      dispatch(
+        sendCart({
+          items: [],
+          totalPrice: "",
+          totalQuantity: "",
+        })
+      );
+    }, 10);
+
+    window.scheduler.postTask(handleGoPoductPage, {
+      priority: "user-blocking",
+    });
+
+    window.scheduler.postTask(onCheckNext, { priority: "background" });
+
     dispatch(handleOrderNotification());
   };
 
