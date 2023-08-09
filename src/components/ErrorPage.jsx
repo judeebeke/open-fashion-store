@@ -36,7 +36,7 @@ const ErrorPage = () => {
         <p className="text-center mb-8">{action}</p>
         <Button
           btnstyle={`w-auto h-auto bg-title text-base mb-8 md:text-lg text-offwhite ${flexCenter} gap-x-3 py-3 px-3 hover:bg-label hover:text-offwhite transition-all duration-500 ease-in-out`}
-          to={`${error.status === 500 ? ".." : "/"}`}
+          to="/"
         >
           <i className="text-offwhite">
             <AiOutlineArrowLeft />

@@ -1,6 +1,5 @@
 // import {Porta}
 import Nav from "./Navigation/Nav";
-import { BsSearch } from "react-icons/bs";
 import { AiOutlineShopping } from "react-icons/ai";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
@@ -21,28 +20,16 @@ const Header = () => {
       <Link to={"/"}>
         <img src={logo} alt="Open Fashion" />
       </Link>
-      <span className="flex justify-between items-center  gap-x-5">
-        <button
-          role="button"
-          className="cursor-not-allowed"
-          disabled={true}
-          aria-disabled
-        >
-          <i className="text-body cursor-not-allowed">
-            <BsSearch />
-          </i>
-        </button>
-        <button role="cart button" onClick={cartActiveHandler}>
-          <i className="text-body relative">
-            {cart > 0 && (
-              <p className="absolute -top-3 -right-1 bg-secondary w-5 p-1 rounded-full text-center text-xs">
-                {cart}
-              </p>
-            )}
-            <AiOutlineShopping />
-          </i>
-        </button>
-      </span>
+      <button role="button" type="button" onClick={cartActiveHandler}>
+        <i className="text-body relative">
+          {cart > 0 && (
+            <p className="absolute -top-3 -right-1 bg-secondary w-5 p-1 rounded-full text-center text-xs">
+              {cart}
+            </p>
+          )}
+          <AiOutlineShopping />
+        </i>
+      </button>
     </header>
   );
 };

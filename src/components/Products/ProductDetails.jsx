@@ -1,4 +1,4 @@
-import { Suspense, lazy, Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useLoaderData } from "react-router-dom";
@@ -9,7 +9,6 @@ import { AiFillHeart, AiOutlineHeart, AiOutlinePlus } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { MdOutlinePrecisionManufacturing } from "react-icons/md";
 import { TbIroning1, TbBleachOff } from "react-icons/tb";
-import MiniLoader from "../UI/MiniLoader";
 
 import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "../Utils/ScrollToTop";
@@ -17,7 +16,7 @@ import { cartActions } from "../../store/cart-slice";
 import { uiActions } from "../../store/ui-slice";
 import { fetchSelectedImage } from "../../store/ui-actions";
 
-const Recommend = lazy(() => import("../UI/Recommend"));
+import Recommend from "../UI/Recommend";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -33,7 +32,7 @@ const ProductDetails = () => {
       setDeliveryDate(date);
     }, 20);
 
-    return () => clearTimeout(timeoutId); // Clean up the timeout on component unmount
+    return () => clearTimeout(timeoutId);
   }, [dispatch]);
 
   const productDetails = useLoaderData();
@@ -242,9 +241,7 @@ const ProductDetails = () => {
           </p>
         </div>
       </main>
-      <Suspense fallback={<MiniLoader />}>
-        <Recommend />
-      </Suspense>
+      <Recommend />
     </Fragment>
   );
 };
