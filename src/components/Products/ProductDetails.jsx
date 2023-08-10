@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, lazy } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useLoaderData } from "react-router-dom";
@@ -16,7 +16,7 @@ import { cartActions } from "../../store/cart-slice";
 import { uiActions } from "../../store/ui-slice";
 import { fetchSelectedImage } from "../../store/ui-actions";
 
-import Recommend from "../UI/Recommend";
+const Recommend = lazy(() => import("../UI/Recommend"));
 
 const ProductDetails = () => {
   const dispatch = useDispatch();

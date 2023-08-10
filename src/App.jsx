@@ -4,14 +4,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Root from "./components/Root";
 import ErrorPage from "./components/ErrorPage";
-import BlogRootElement from "./components/Blog/BlogRootElement";
 import Loader from "./components/UI/Loader";
 
 import { loader as postLoader } from "./components/Blog/PostLoader";
 import { loader as homepageLoader } from "./components/HomepageSections/HomeLoader";
 
-import ProductRoot from "./components/Products/ProductRoot";
-import CartRoot from "./components/Cart/CartRoot";
+const BlogRootElement = lazy(() => import("./components/Blog/BlogRootElement"));
+const ProductRoot = lazy(() => import("./components/Products/ProductRoot"));
+const CartRoot = lazy(() => import("./components/Cart/CartRoot"));
 
 const Checkout = lazy(() => import("./components/Cart/Checkout"));
 const Blog = lazy(() => import("./components/Blog/Blog"));
