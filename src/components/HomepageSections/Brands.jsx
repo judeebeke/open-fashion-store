@@ -25,7 +25,7 @@ const Brands = () => {
             >
               <img
                 src={item.image}
-                className="w-full object-contain cursor-pointer"
+                className="w-full h-auto object-contain cursor-pointer"
                 alt={item.title}
               />
             </motion.figure>

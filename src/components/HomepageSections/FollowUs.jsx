@@ -17,7 +17,7 @@ const FollowUs = () => {
       <i className="text-3xl text-body py-4">
         <AiOutlineInstagram />
       </i>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 lg:gap-9">
+      <div className="grid grid-cols-2 lg:grid-cols-4 place-items-center gap-y-5 md:gap-5 lg:gap-9">
         {compressedProductData.map((item) => {
           return (
             <img
@@ -25,6 +25,7 @@ const FollowUs = () => {
               loading="lazy"
               src={item.compressedImage}
               alt={item.link}
+              className="w-5/6 h-auto"
             />
           );
         })}

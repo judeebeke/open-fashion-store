@@ -14,9 +14,13 @@ const ProductInfo = (props) => {
     <>
       <figure
         key={itemCode}
-        className={`flex flex-col justify-center items-center text-center pt-9`}
+        className={`flex flex-col w-2/5 justify-center items-center mx-auto text-center pt-9`}
       >
-        <img src={itemImageBlob} className="object-contain" alt={itemName} />
+        <img
+          src={itemImageBlob}
+          className="w-full h-auto object-contain"
+          alt={itemName}
+        />
 
         <Link
           to={`/product/productdetails/${itemCode}`}

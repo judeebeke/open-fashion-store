@@ -26,13 +26,14 @@ const OpenFashion = () => {
                 src={item.icon}
                 loading="lazy"
                 alt={`Open Fashion Icon that displays ${item.info}`}
+                className="w-1/4 h-auto"
               />
               <p>{item.info}</p>
             </figure>
           );
         })}
       </div>
-      <img src={signature} className="pt-5 w-24" alt="Rope Art" />
+      <img src={signature} className="pt-5 w-24 h-auto" alt="Rope Art" />
     </section>
   );
 };

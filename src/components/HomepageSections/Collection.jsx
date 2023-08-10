@@ -36,7 +36,7 @@ const Collection = () => {
       <figure className="collection-ad1">
         <img
           src={compressedCollectionOneImage}
-          className="w-full"
+          className="w-full h-auto object-contain"
           loading="lazy"
           alt="Woman sooking side ways"
         />
@@ -53,7 +53,7 @@ const Collection = () => {
       <figure className="collection-ad2">
         <img
           src={compressedCollectionTwoImage}
-          className="w-4/5"
+          className="w-4/5 h-auto object-contain"
           loading="lazy"
           alt="Foot of a sitting lady in dress"
         />
@@ -65,7 +65,7 @@ const Collection = () => {
       <div className="collection-ad3 mt-4">
         <img
           src={compressedCollectionThreeImage}
-          className="w-full"
+          className="w-full h-auto object-contain"
           loading="lazy"
           alt="Nice View of a Table"
         />

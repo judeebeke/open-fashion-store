@@ -36,11 +36,11 @@ const Root = () => {
 
   return (
     <div>
-      {cartActive && (
+      {
         <Suspense fallback={<Loader />}>
-          <CartModal />
+          <CartModal cartActive={cartActive} />
         </Suspense>
-      )}
+      }
       <Header />
       {navigation.state === "loading" && <Loader />}
       <Outlet />

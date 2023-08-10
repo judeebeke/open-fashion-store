@@ -1,1 +1,0 @@
-import{d as t,s,l as o,g as l,e as n}from"./index-be90c6aa.js";const d=async()=>{try{const r=t(s,"blog/blog/"),a=(await o(r)).items;return await Promise.all(a.map(async e=>({imageUrl:await l(e),imageName:e.name})))||null}catch(r){throw console.error("Error in loader:",r),n({message:null},{status:500,statusText:r})}};export{d as loader};
