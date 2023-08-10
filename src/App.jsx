@@ -10,13 +10,13 @@ import Loader from "./components/UI/Loader";
 import { loader as postLoader } from "./components/Blog/PostLoader";
 import { loader as homepageLoader } from "./components/HomepageSections/HomeLoader";
 
+import ProductRoot from "./components/Products/ProductRoot";
 import CartRoot from "./components/Cart/CartRoot";
 
 const Checkout = lazy(() => import("./components/Cart/Checkout"));
 const Blog = lazy(() => import("./components/Blog/Blog"));
 const Post = lazy(() => import("./components/Blog/Post"));
 
-const ProductRoot = lazy(() => import("./components/Products/ProductRoot"));
 const ProductDetails = lazy(() =>
   import("./components/Products/ProductDetails")
 );
@@ -51,19 +51,17 @@ function App() {
           index: true,
           element: <Homepage />,
         },
-
         {
           path: "blog",
-          element: (
-            <Suspense fallback={<Loader />}>
-              {" "}
-              <BlogRootElement />{" "}
-            </Suspense>
-          ),
+          element: <BlogRootElement />,
           children: [
             {
               index: true,
-              element: <Blog />,
+              element: (
+                <Suspense fallback={<Loader />}>
+                  <Blog />
+                </Suspense>
+              ),
               loader: (meta) =>
                 import("./components/Blog/blogPostLoader").then((module) =>
                   module.loader(meta)
