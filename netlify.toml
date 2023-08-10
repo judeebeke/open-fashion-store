@@ -4,6 +4,16 @@ status = 200
 to = "/index.html"
 
 [[redirects]]
+from = "/contact"
+status = 200
+to = "/index.html"
+
+[[redirects]]
+from = "/about"
+status = 200
+to = "/index.html"
+
+[[redirects]]
 from = "/blog"
 status = 200
 to = "/index.html"

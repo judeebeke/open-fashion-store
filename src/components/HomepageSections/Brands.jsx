@@ -1,5 +1,6 @@
 import { brands } from "../../store/localdata";
 import SectionTitle from "../UI/SectionTitle";
+import { motion } from "framer-motion";
 
 const Brands = () => {
   return (
@@ -8,13 +9,26 @@ const Brands = () => {
       <div className="flex flex-wrap gap-x-5 gap-y-8 justify-center align-middle items-center md:gap-x-9">
         {brands.map((item) => {
           return (
-            <figure key={item.id} className="w-24 text-center">
+            <motion.figure
+              key={item.id}
+              className="w-24 text-center"
+              initial={{ rotate: 0 }}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{
+                scale: 0.8,
+                rotate: [180, 0],
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 50,
+              }}
+            >
               <img
                 src={item.image}
-                className="w-full object-contain"
+                className="w-full object-contain cursor-pointer"
                 alt={item.title}
               />
-            </figure>
+            </motion.figure>
           );
         })}
       </div>

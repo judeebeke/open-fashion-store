@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import MobileNav from "./MobileNav";
+import { hoverLinkTransition } from "../../style";
 
 const Nav = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -11,10 +12,13 @@ const Nav = () => {
 
   return (
     <nav>
-      <span className="text-body cursor-pointer" onClick={navHandler}>
+      <span
+        className={`text-body cursor-pointer hover:text-secondary ${hoverLinkTransition}`}
+        onClick={navHandler}
+      >
         <RxHamburgerMenu />
       </span>
-      {isNavOpen && <MobileNav onNavClick={navHandler} />}
+      <MobileNav onNavClick={navHandler} isNavOpen={isNavOpen} />
     </nav>
   );
 };

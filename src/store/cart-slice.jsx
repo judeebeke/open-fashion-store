@@ -7,6 +7,7 @@ const cartSlice = createSlice({
     totalPrice: "",
     totalQuantity: "",
     isChangedData: false,
+    animateCart: false,
   },
   reducers: {
     replaceCart(state, action) {
@@ -53,6 +54,7 @@ const cartSlice = createSlice({
       );
 
       state.totalQuantity = state.items.length;
+      state.animateCart = true;
     },
     toggleToFavourite(state, action) {
       state.isChangedData = true;
@@ -103,6 +105,7 @@ const cartSlice = createSlice({
         0
       );
       state.totalQuantity = state.items.length;
+      state.animateCart = true;
     },
     removeFromCart(state, action) {
       state.isChangedData = true;
@@ -131,6 +134,10 @@ const cartSlice = createSlice({
       );
 
       state.totalQuantity = state.items.length;
+      state.animateCart = true;
+    },
+    closeAnimateCart(state) {
+      state.animateCart = false;
     },
   },
 });
