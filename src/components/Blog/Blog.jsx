@@ -24,6 +24,7 @@ const Blog = () => {
       <section className={`${flexCenter} flex-wrap gap-4`}>
         {blogPost.map((post) => {
           const postImage = imageList.find((item) => {
+            console.log(post, item.imageName);
             return item.imageName.includes(post.tag);
           });
 
