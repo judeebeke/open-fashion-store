@@ -1,0 +1,1 @@
+import{N as t,Q as s,R as o,U as n,w as l}from"./index-ab8bbfc1.js";const w=async()=>{try{const r=t(s,"blog/blog/"),a=(await o(r)).items;return await Promise.all(a.map(async e=>({imageUrl:await n(e),imageName:e.name})))||null}catch(r){throw console.error("Error in loader:",r),l({message:null},{status:500,statusText:r})}};export{w as loader};
