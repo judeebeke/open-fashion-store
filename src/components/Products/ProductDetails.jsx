@@ -197,7 +197,7 @@ const ProductDetails = () => {
           <div className="flex flex-col">
             <h4 className="text-lg mb-2">Materials Details</h4>
             <p className="flex flex-wrap text-base leading-8">
-              {productDetails.materialDetails[0].description}
+           { productDetails.articlesList[0].materialDetails[0].description}
             </p>
           </div>
           <div className="flex flex-col">
